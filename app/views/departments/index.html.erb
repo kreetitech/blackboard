@@ -1,2 +1,5 @@
-%= form_for :department, :url => departments_path, :method => :post do |f| %>
-  <%= f.label :name -%>
+<ul>
+  <% @departments.each do |d| %>
+  <li><%= d.name -%></li>
+  <%end%>
+</ul>

@@ -10,7 +10,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110628131224) do
+ActiveRecord::Schema.define(:version => 20110629141239) do
+
+  create_table "addresses", :force => true do |t|
+    t.integer  "member_id",  :null => false
+    t.text     "address"
+    t.string   "zipcode"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "phone_resi"
+    t.string   "phone_mob"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "addresses", ["member_id"], :name => "fk_addresses_member_id_members_id"
+
+  create_table "members", :force => true do |t|
+    t.string   "registration_id"
+    t.integer  "user_id",         :null => false
+    t.string   "gender"
+    t.string   "nationality"
+    t.text     "qualification"
+    t.string   "father_name"
+    t.string   "mother_name"
+    t.datetime "date_of_birth"
+    t.text     "experience"
+    t.integer  "department_id",   :null => false
+    t.integer  "program_id",      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "members", ["user_id"], :name => "fk_members_user_id_users_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

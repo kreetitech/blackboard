@@ -10,7 +10,6 @@ class CreateComments < ActiveRecord::Migration
     end
     add_foreign_key :comments, :discussion_id, :discussions, :id
     add_foreign_key :comments, :assignment_id, :assignments, :id
-    #add_foreign_key :comments, :member_id, :members, :id
   end
 
   def self.down

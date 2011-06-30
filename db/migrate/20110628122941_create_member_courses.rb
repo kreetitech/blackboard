@@ -6,9 +6,7 @@ class CreateMemberCourses < ActiveRecord::Migration
       t.timestamps
 
     end
-    
-# add_foreign_key :member_courses, :member_id, :members, :id
- add_foreign_key :member_courses, :course_id, :courses, :id
+    add_foreign_key :member_courses, :course_id, :courses, :id
   end
 
   def self.down

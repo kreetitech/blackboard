@@ -1,8 +1,10 @@
+<%= link_to "ADD Department", new_department_path -%>
 <ul>
   <% @departments.each do |d| %>
-  <li><%= d.name -%></li>
-  <% d.submit, "Add" -%>
-  <% d.submit, "Edit" -%>
-  <% d.submit, "Delete" -%>
+  <li>
+    <span><%= d.name -%></span>
+    <%= link_to "edit", edit_department_path(d) %>
+    <%= link_to "delete", department_path(d), :method => :delete -%>
+  </li>
   <%end%>
 </ul>

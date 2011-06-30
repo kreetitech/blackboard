@@ -1,5 +1,8 @@
 <ul>
   <% @departments.each do |d| %>
   <li><%= d.name -%></li>
+  <% d.submit, "Add" -%>
+  <% d.submit, "Edit" -%>
+  <% d.submit, "Delete" -%>
   <%end%>
 </ul>

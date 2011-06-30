@@ -1,1 +1,6 @@
-<%= form_for :department, :url => departments_path, :method => :post do |f| %>
+<%= form_for :department, :url => department_path(@department), :method => :put do |f| %>
+  <%= f.label :name -%>
+  <%= f.text_field :name -%>
+  <%= link_to "Update", departments_path %>
+  <%= link_to "Cancel", "" %>
+<% end %>

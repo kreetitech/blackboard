@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110629141239) do
+ActiveRecord::Schema.define(:version => 20110630122850) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "member_id",  :null => false
@@ -26,6 +26,65 @@ ActiveRecord::Schema.define(:version => 20110629141239) do
   end
 
   add_index "addresses", ["member_id"], :name => "fk_addresses_member_id_members_id"
+
+  create_table "assignments", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "full_marks"
+    t.datetime "due_date"
+    t.integer  "member_id",   :null => false
+    t.integer  "course_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assignments", ["course_id"], :name => "fk_assignments_course_id_courses_id"
+
+  create_table "comments", :force => true do |t|
+    t.text     "message"
+    t.integer  "discussion_id", :null => false
+    t.integer  "assignment_id", :null => false
+    t.integer  "member_id",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["assignment_id"], :name => "fk_comments_assignment_id_assignments_id"
+  add_index "comments", ["discussion_id"], :name => "fk_comments_discussion_id_discussions_id"
+  add_index "comments", ["member_id"], :name => "fk_comments_member_id_members_id"
+
+  create_table "courses", :force => true do |t|
+    t.string   "name"
+    t.integer  "program_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "courses", ["program_id"], :name => "fk_courses_program_id_programs_id"
+
+  create_table "departments", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "discussions", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "member_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "member_courses", :force => true do |t|
+    t.integer  "member_id",  :null => false
+    t.integer  "course_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "member_courses", ["course_id"], :name => "fk_member_courses_course_id_courses_id"
+  add_index "member_courses", ["member_id"], :name => "fk_member_courses_member_id_members_id"
 
   create_table "members", :force => true do |t|
     t.string   "registration_id"
@@ -44,6 +103,27 @@ ActiveRecord::Schema.define(:version => 20110629141239) do
   end
 
   add_index "members", ["user_id"], :name => "fk_members_user_id_users_id"
+
+  create_table "program_sessions", :force => true do |t|
+    t.string   "title"
+    t.datetime "from_date"
+    t.datetime "to_date"
+    t.integer  "course_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "program_sessions", ["course_id"], :name => "fk_program_sessions_course_id_courses_id"
+
+  create_table "programs", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "department_id", :null => false
+  end
+
+  add_index "programs", ["department_id"], :name => "fk_programs_department_id_departments_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

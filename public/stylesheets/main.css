@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+
+*
+{
+	margin:0;
+	padding:0;
+}
+body
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+.all
+{
+	float:left;
+}
+.alr
+{
+	float:right;
+}
+a
+{
+	color:#ff9900;
+	text-decoration:none;
+}
+#titlebar
+{
+	background:#333;
+}
+#title_content
+{
+	width:95%;
+	margin:0 auto;
+	overflow:hidden;
+	padding:13px 0;
+}
+#welcome_details
+{
+	width:200px;
+	float:right;
+	font-size:11px;
+	color:#fff;
+}
+#welcome_details img
+{
+	float:left;
+	margin-right:10px;
+}
+#title_content h3
+{
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:34px;
+	font-weight:bold;
+	color:#fff;
+}
+
+/* HOME */
+#home p{
+ font-size:30px;
+ color:#000000;
+}
+#home span{color:red;}

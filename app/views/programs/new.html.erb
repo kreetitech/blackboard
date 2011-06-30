@@ -1,0 +1,8 @@
+<h2>Create Program</h2>
+<%= form_for :program, :url => programs_path(:department_id => @department), :method => :post do |f| %>
+  <%= f.label :name -%>
+  <%= f.text_field :name -%>
+  <%= f.label :code -%>
+  <%= f.text_field :code -%>
+  <%= f.submit %>
+<% end %>

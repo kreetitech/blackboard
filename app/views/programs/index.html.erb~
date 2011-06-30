@@ -1,0 +1,7 @@
+<ul>
+  <% @programs.each do |p| %>
+  <li><%= p.name -%></li>
+  <li><%= p.code -%></li>
+
+  <%end%>
+</ul>

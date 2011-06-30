@@ -5,6 +5,7 @@ Blackboard::Application.routes.draw do
   root :to => "home#index"
 
   resources :departments
+  resources :programs
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

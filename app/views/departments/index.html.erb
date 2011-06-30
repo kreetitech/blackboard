@@ -2,7 +2,7 @@
 <ul>
   <% @departments.each do |d| %>
   <li>
-    <span><%= d.name -%></span>
+    <span><%= link_to d.name, department_path(d) -%></span>
     <%= link_to "edit", edit_department_path(d) %>
     <%= link_to "delete", department_path(d), :method => :delete -%>
   </li>

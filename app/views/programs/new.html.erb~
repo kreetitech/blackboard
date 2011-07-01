@@ -1,7 +1,0 @@
-<%= form_tag :program, :url => programs_path, :method => :post do |f| %>
-  <%= f.label :name -%>
-  <%= f.text_field :name -%>
-  <%= f.label :code -%>
-  <%= f.text_field :code -%>
-  <%= f.submit %>
-<% end %>

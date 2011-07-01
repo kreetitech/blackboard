@@ -25,8 +25,8 @@ class DepartmentsController < ApplicationController
   end
 
   def show
-     @department = Department.find(params[:id])
-     @title = "Display"
+    @department = Department.find(params[:id])
+    @program = @department.programs 
   end
 
   def destroy

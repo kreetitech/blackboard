@@ -1,4 +1,9 @@
 <div>
-  <h1><%= @department.name -%><h1>
+  <h3>Department >> <%= @department.name -%><h3>
+  <h1>Programme</h1>
   <%= link_to "add program", new_program_path(:department_id => @department) -%>
+  <ul>
+  <%= @program.each do |p| %>
+  <% end %>
+  </ul>
 </div>

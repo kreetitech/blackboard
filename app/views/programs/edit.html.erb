@@ -1,8 +1,13 @@
+
+<h4 class="all">Edit Program</h4>
 <%= form_for :program, :url => program_path(@program, :department_id => @department), :method => :put do |f| %>
+
   <%= f.label :name -%>
   <%= f.text_field :name -%>
-  <%= f.label :code -%>
+   <%= f.label :code -%>
   <%= f.text_field :code -%>
   <%= f.submit -%>
-  <%= link_to "Cancel", "" %>
+  	<div class="edit-holder alr">
+	  
 <% end %>
+

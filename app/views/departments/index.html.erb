@@ -1,10 +1,47 @@
-<%= link_to "ADD Department", new_department_path -%>
+
+<% link_to "ADD Department", new_department_path -%>
 <ul>
+ 
+<div   id="navigation">
+    <div id="main_tabs" class="clearfix">
+        <ul>
+   <li>        
+<%= link_to "Departments</a>
+</li>
+<li>
+<a href="#">Faculty</a>
+</li>
+<li>
+<a href="#">Students</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="content_left" class="all">
+<div id="dpt_header" class="clearfix">
+<h4 class="all">Departments</h4>
+<%= link_to "+ Add Department", new_department_path, :class => "alr button" -%>
+<a class="alr button" href="#">+ Add Department</a>
+</div>
+<ul id="departments">
   <% @departments.each do |d| %>
-  <li>
+  <li class="clearfix">
+    <%= link_to d.name, department_path(d) -%>
+    <div class="edit-holder alr">
+      <ul>
+	<li>
+	  <%= link_to "Edit", edit_department_path(d), :class =>"edit-but" %>
+	</li>
+      </ul>
+    </div>
+
+
+
+
     <span><%= link_to d.name, department_path(d) -%></span>
     <%= link_to "edit", edit_department_path(d) %>
     <%= link_to "delete", department_path(d), :method => :delete -%>
   </li>
+<div>
   <%end%>
 </ul>

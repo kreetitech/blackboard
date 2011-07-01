@@ -4,6 +4,7 @@
   <%= link_to "add program", new_program_path(:department_id => @department) -%>
   <ul>
   <%= @program.each do |p| %>
+  <%= link_to p.name, program_path(p, :department_id => @department) %>
   <% end %>
   </ul>
 </div>

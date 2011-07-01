@@ -1,6 +1,19 @@
+
+
+<h4 class="all">Edit Department</h4>
+
+
 <%= form_for @department do |f| %>
+
   <%= f.label :name -%>
   <%= f.text_field :name -%>
-  <%= f.submit "Update" %>
-  <%= link_to "Cancel", "" %>
+  	<div class="edit-holder alr">
+	  <ul  class = "edit-box">
+	    <li>
+  <%= link_to "Update" -%>
+            </li>
+<li> 
+ <%= link_to "Cancel", department_path  -%>
+</li>
+</ul>
 <% end %>

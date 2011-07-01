@@ -153,7 +153,7 @@ visibility:hidden;
 .edit-but
 {
 	display:block;
-	background:url(images/edit_sprite.png) no-repeat 0 0;
+	background:url(/images/edit_sprite.png) no-repeat 0 0;
 	text-indent:-9999px;
 	width:42px;
 	height:23px;
@@ -189,11 +189,11 @@ visibility:hidden;
 }
 .edit
 {
-	background:url(images/edit_icon.png) no-repeat 0 0;
+	background:url(/images/edit_icon.png) no-repeat 0 0;
 }
 .delete
 {
-	background:url(images/delete_icon.png) no-repeat 0 3px;
+	background:url(/images/delete_icon.png) no-repeat 0 3px;
 }
 .edit-sub li:hover a
 {

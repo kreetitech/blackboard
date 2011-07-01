@@ -1,25 +1,18 @@
-
-<body>
-<div id="wrapper">
-
 <div id="titlebar">
-<div id="title_content">
-<div id="welcome_details">
-<img src="images/img_placeholder.png" width="55" height="55" alt="" />
-<div id="user_nav">
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
- </div>
-
+  <div id="title_content">
+    <div id="welcome_details">
+      <img src="images/img_placeholder.png" width="55" height="55" alt="" />
+      <div id="user_nav">
+	<% if user_signed_in? %>
+	Signed in as <%= current_user.email %>. Not you?
+	<%= link_to "Sign out", destroy_user_session_path %>
+	<% else %>
+	<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+	<% end %>
+      </div>
+    </div>
+    <h3>BLACKBOARD</h3>
+  </div>
 </div>
-<h3>BLACKBOARD</h3>
-</div>
-</div>
-</div>
-</body>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>

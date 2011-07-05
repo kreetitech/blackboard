@@ -12,7 +12,7 @@ development:
   database: blackboard_development
   pool: 5
   username: root
-  password: Mapinkbo
+  password: kreeti
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -25,7 +25,7 @@ test:
   database: blackboard_test
   pool: 5
   username: root
-  password: Mapinkbo
+  password: kreeti
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -35,5 +35,5 @@ production:
   database: blackboard_production
   pool: 5
   username: root
-  password: Mapinkbo
+  password: kreeti
   socket: /var/run/mysqld/mysqld.sock

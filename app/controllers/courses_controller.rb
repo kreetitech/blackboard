@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+
   def index
     @program = Program.find(params[:program_id])
     @courses = @program.courses
@@ -11,8 +12,7 @@ class CoursesController < ApplicationController
   def create
     @program = Program.find(params[:program_id])
     @course = @program.courses.create!(params[:id])
-    
-    redirect_to courses_path
+    redirect_to courses_path(:program_id => @program)
   end
 
   def edit
@@ -21,21 +21,23 @@ class CoursesController < ApplicationController
   end
 
   def update
-     @program = Program.find(params[:department_id]
-    @course = @program.course.find(params[:id])
+    @program = Program.find(params[:program_id])
+    @course = @program.courses.find(params[:id])
     @course.update_attributes(params[:course])
+    redirect_to courses_path(:program_id => @program)
   end
 
   def show
-    @program = Program.find(params[:Program_id])
+    @program = Program.find(params[:program_id])
     @course = @program.courses.find(params[:id])
   end
 
   def destroy
-    @program = Program.find(params[:Program_id]
+    @program = Program.find(params[:program_id])
     @course = @program.courses.find(params[:id])
     @course.destroy
+    redirect_to courses_path(:program_id => @program)
   end
-  
+
 end
 

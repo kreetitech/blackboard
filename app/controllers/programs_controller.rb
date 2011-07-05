@@ -1,4 +1,4 @@
-gclass ProgramsController < ApplicationController
+class ProgramsController < ApplicationController
 
   def index
     @department = Department.find(params[:department_id])
@@ -32,8 +32,9 @@ gclass ProgramsController < ApplicationController
   end
 
   def show
-     @department = Department.find(params[:department_id])
-     @program = @department.programs.find(params[:id])
+    @department = Department.find(params[:department_id])
+    @program = @department.programs.find(params[:id])
+    @courses = @program.courses
   end
 
   def destroy

@@ -11,6 +11,17 @@ body
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:12px;
 }
+.band
+{
+content:".";
+display:block;
+clear:both;
+height:0;
+visibility:hidden;
+width:75%;
+align:left;
+font-size:1.5px;
+}
 .all
 {
 	float:left;
@@ -174,7 +185,7 @@ visibility:hidden;
 	background: -webkit-gradient(linear, left top, left bottom, from(#f5f6f6), to(#e7e8e7));
 	background: -moz-linear-gradient(top,  #f5f6f6,  #e7e8e7);
 	border:1px solid #888888;
-	z-index:2;	
+	z-index:2;
 }
 .edit-box li:hover .edit-sub
 {
@@ -250,7 +261,7 @@ visibility:hidden;
 }
 
 #home span
-{ 
+{
 
     	font-family:Arial, Helvetica, sans-serif;
 	font-size:30px;
@@ -259,7 +270,7 @@ visibility:hidden;
 
 
 
-    
-    
-	
+
+
+
 

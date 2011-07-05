@@ -1,0 +1,6 @@
+<%= form_for @course do |t| %>
+  <%= t.label :name -%>
+  <%= t.text_field :name -%>
+  <%= t.submit "Update" %>
+  <%= link_to "Cancel", "" %>
+<% end %>

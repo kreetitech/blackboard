@@ -7,5 +7,13 @@ class Member < ActiveRecord::Base
   belongs_to :program
   has_many :departments
   has_many :member_courses
+ attr_accessible :user_id,:department_id,:program_id
+# validators
+validates_presence_of :registration
+validates_uniqueness_of :registration
+validates_presence_of :gender
+validates_presence_of :nationality
+validates_presence_of :father_name
+validates_presence_of :date_of_birth
   
 end

@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
 
   def create
     @program = Program.find(params[:program_id])
-    @course = @program.courses.create!(params[:id])
+    @program.courses.create!(params[:course])
     redirect_to courses_path(:program_id => @program)
   end
 

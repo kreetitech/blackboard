@@ -7,6 +7,7 @@ class Member < ActiveRecord::Base
   belongs_to :program
   has_many :departments
   has_many :member_courses
+  has_many :gradebooks
  attr_accessible :user_id,:department_id,:program_id
 # validators
 validates_presence_of :registration

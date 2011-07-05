@@ -6,6 +6,8 @@ Blackboard::Application.routes.draw do
 
   resources :departments
   resources :programs
+  resources :courses
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

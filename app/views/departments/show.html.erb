@@ -1,25 +1,25 @@
 <div>
-  <h3>Department >> <%= @department.name -%><h3>
-<div id="dpt_header" class="clearfix">
-  <h4>Programme</h4>
-  <%= link_to "+ Add Program", new_program_path(:department_id => @department), :class => "alr button" -%>
-</div>
+  <h3><%= link_to "Department", departments_path -%> >> <%= @department.name -%><h3>
+  <div id="dpt_header" class="clearfix">
+    <h4>Programme</h4>
+    <%= link_to "+ Add Program", new_program_path(:department_id => @department), :class => "alr button" -%>
+  </div>
   <ul id="departments">
-    <%= @program.each do |p| -%>
-      <li class="clearfix">
-	<%= link_to p.name, program_path(p, :department_id => @department) -%>
-	<div class="edit-holder alr">
-	  <ul class="edit-box">
-	    <li>
-	      <%= link_to "Edit", edit_program_path(p,  :department_id => @department), :class => "edit-but" -%>
-	      <ul class="edit-sub">
-		<li> <%= link_to "Edit", edit_program_path(p,  :department_id => @department) -%></li>
-		<li> <%= link_to "Delete", program_path(p,  :department_id => @department), :method => :delete -%></li>
+    <% @program.each do |p| -%>
+    <li class="clearfix">
+	    <%= link_to p.name, program_path(p, :department_id => @department) -%>
+	    <div class="edit-holder alr">
+	      <ul class="edit-box">
+	        <li>
+	          <%= link_to "Edit", edit_program_path(p,  :department_id => @department), :class => "edit-but" -%>
+	          <ul class="edit-sub">
+		          <li> <%= link_to "Edit", edit_program_path(p,  :department_id => @department) -%></li>
+		          <li> <%= link_to "Delete", program_path(p,  :department_id => @department), :method => :delete -%></li>
+	          </ul>
+	        </li>
 	      </ul>
-	    </li>
-	  </ul>  
-	</div>
-      </li> 
-      <% end %>
+	    </div>
+    </li>
+    <% end %>
   </ul>
 </div>

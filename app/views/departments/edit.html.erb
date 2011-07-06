@@ -1,4 +1,6 @@
 <h4 class="all">Edit Department</h4>
+<br>
+<br>
 <%= form_for @department do |f| %>
 <%= f.label :name -%>
 <%= f.text_field :name -%>
@@ -7,10 +9,11 @@
     <li>
       <%= f.submit "Update" -%>
     </li>
-    <li> 
+    <li>
+      <br>
       <%= link_to "Cancel", department_path  -%>
     </li>
   </ul>
 </div>
 <% end %>
-  
+

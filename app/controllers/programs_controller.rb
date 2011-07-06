@@ -3,7 +3,7 @@ class ProgramsController < ApplicationController
   def index
     @department = Department.find(params[:department_id])
     @programs = @department.programs
-      
+
 
   end
 
@@ -41,7 +41,7 @@ class ProgramsController < ApplicationController
     @department = Department.find(params[:department_id])
     @program = @department.programs.find(params[:id])
     @program.destroy
-    redirect_to programs_path(@department)
+    redirect_to department_path(@department)
 
   end
 

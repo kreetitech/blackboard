@@ -1,11 +1,6 @@
-<%= link_to "ADD Courses", new_course_path(:program_id => @program.id) -%>
-
 <ul>
-  <% @courses.each do |t| %>
-  <li>
-    <span><%= t.name -%></span>
-   <%= link_to "edit", edit_course_path(t.id, :program_id => @program.id) %>
-    <%= link_to "delete", course_path(t.id, :program_id => @program.id), :method => :delete -%>
-  </li>
+  <% @courses.each do |p| %>
+  <li><%= p.name -%></li>
+  
   <% end %>
 </ul>

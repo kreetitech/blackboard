@@ -1,6 +1,6 @@
 class GradebooksController < ApplicationController
   def index
-    
+
   end
 
   def new
@@ -17,8 +17,7 @@ class GradebooksController < ApplicationController
     @gradebook = Gradebook.find(params[:id])
     @gradebook.update_attributes(params[:gradebook])
     redirect_to gradebooks_path
-    
-  end
+   end
 
   def show
     @gradebook = Gradebook.find(params[:id])

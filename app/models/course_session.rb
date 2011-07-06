@@ -1,4 +1,4 @@
-class ProgramSession < ActiveRecord::Base
+class CourseSession < ActiveRecord::Base
   belongs_to :course
   has_many :gradebooks
 attr_accessible :course_id

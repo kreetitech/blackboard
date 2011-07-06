@@ -1,0 +1,17 @@
+<h4 class="all">update gradebook</h4>
+
+
+<%= form_for @gradebook :url => gradebooks_path(:course_session_id => @course_session_id), :method => :post do |f| %>
+
+  <%= f.label :marks -%>
+  <%= f.text_field :marks -%>
+  	<div class="edit-holder alr">
+	  <ul  class = "edit-box">
+	    <li>
+  <%= link_to "Update" -%>
+            </li>
+<li> 
+ <%= link_to "Cancel", gradebook_path  -%>
+</li>
+</ul>
+<% end %>

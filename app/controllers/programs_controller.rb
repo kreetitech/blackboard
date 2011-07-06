@@ -3,7 +3,7 @@ class ProgramsController < ApplicationController
   def index
     @department = Department.find(params[:department_id])
     @programs = @department.programs
-       redirect_to department_path(@department)
+      
 
   end
 
@@ -15,19 +15,19 @@ class ProgramsController < ApplicationController
     @department = Department.find(params[:department_id])
     @department.programs.create!(params[:program])
     redirect_to department_path(@department)
-
   end
 
- def edit
+  def edit
     @department = Department.find(params[:department_id])
     @program = @department.programs.find(params[:id])
+    @title = "Edit"
   end
 
   def update
     @department = Department.find(params[:department_id])
     @program = @department.programs.find(params[:id])
     @program.update_attributes(params[:program])
-    redirect_to department_path(@department)
+    redirect_to departments_path(:department_id => @department)
 
   end
 
@@ -41,7 +41,7 @@ class ProgramsController < ApplicationController
     @department = Department.find(params[:department_id])
     @program = @department.programs.find(params[:id])
     @program.destroy
-    redirect_to department_path(@department)
+    redirect_to programs_path(@department)
 
   end
 

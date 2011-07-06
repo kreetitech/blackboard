@@ -27,7 +27,7 @@ class ProgramsController < ApplicationController
     @department = Department.find(params[:department_id])
     @program = @department.programs.find(params[:id])
     @program.update_attributes(params[:program])
-    redirect_to departments_path(:department_id => @department)
+    redirect_to department_path(@department)
 
   end
 
@@ -41,7 +41,7 @@ class ProgramsController < ApplicationController
     @department = Department.find(params[:department_id])
     @program = @department.programs.find(params[:id])
     @program.destroy
-    redirect_to programs_path(@department)
+    redirect_to department_path(@department)
 
   end
 

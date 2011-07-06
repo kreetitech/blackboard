@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :members
-  
+
+  ADMIN = 0
+  STUDENT = 1
+  FACULTY = 2
   # Include default devise modules. Others available are:
    
   devise :database_authenticatable, :registerable,

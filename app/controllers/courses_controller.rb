@@ -31,7 +31,7 @@ class CoursesController < ApplicationController
 
   def show
     @department = Department.find(params[:department_id])
-    @program = @department.programs.find(params[:id])
+    @program = @department.programs.find(params[:program_id])
     @course = @program.courses.find(params[:id])
     @courseSessions = @course.courseSession
   end

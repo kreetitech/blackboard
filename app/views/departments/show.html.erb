@@ -7,7 +7,7 @@
   <ul id="departments">
     <% @program.each do |p| -%>
     <li class="clearfix">
-	    <%= link_to p.name, program_path(p, :department_id => @department) -%>
+	    <%=  link_to p.name, program_path(p, :department_id => @department) -%>
 	    <div class="edit-holder alr">
 	      <ul class="edit-box">
 	        <li>

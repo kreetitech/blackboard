@@ -157,7 +157,15 @@ visibility:hidden;
 	background: -moz-linear-gradient(top,  #f5f6f6,  #e7e8e7);
 	border:1px solid #888888;
 }
-#dpt_header
+
+.form-info-header
+{
+    background: #FF9900;
+    color: #FFFFFF;
+    margin: 10px 0;
+    padding: 8px 10px
+}
+.content-header
 {
 	padding:15px 0;
 	border-bottom:1px solid #cccccc;

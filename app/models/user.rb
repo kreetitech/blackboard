@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-  has_many :members
-
+  has_one :member
+  has_many :addresses
   ADMIN = 0
   STUDENT = 1
   FACULTY = 2
   # Include default devise modules. Others available are:
-   
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable,  :confirmable, :lockable and :timeoutable
 

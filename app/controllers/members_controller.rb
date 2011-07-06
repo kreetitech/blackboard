@@ -5,12 +5,15 @@ class MembersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def create
-     @member =  Member.create!(params[:department])
-     @user = User.Profile.create!(params[:members][:profiles])
-     @address = User.Address.create!(params[:members][:address])
+    User.transaction do
+      @user =  User.create!(params[:user])
+      @member = @user.create_member(params[:profile])
+      @address = @member.addresses.create!(params[:address])
+    end
     redirect_to members_path
   end
 

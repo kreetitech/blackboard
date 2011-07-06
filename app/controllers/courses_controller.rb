@@ -28,8 +28,10 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @program = Program.find(params[:program_id])
+    @department = Department.find(params[:department_id])
+    @program = @department.programs.find(params[:id])
     @course = @program.courses.find(params[:id])
+    @courseSessions = @course.courseSession
   end
 
   def destroy

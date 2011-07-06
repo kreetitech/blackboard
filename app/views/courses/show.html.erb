@@ -1,11 +1,11 @@
 <div>
   <h3><%= link_to "Department", departments_path -%> >> <%= link_to @department.name -%> >> <%= link_to @program.name -%> <%= link_to @course.name -%><h3>
   <div id="dpt_header" class="clearfix">
-    <h4>Courses</h4>
-    <%= link_to "+ Add Course Sessions", new_course_session_path(:course_id => @course), :class => "alr button" -%>
+    <h4>CourseSessions</h4>
+    <%= link_to "+ Add Course Sessions", new_courseSession_path(:course_id => @course), :class => "alr button" -%>
   </div>
   <ul id="departments">
-    <% @course_sessions.each do |c| -%>
+    <% @courseSessions.each do |c| -%>
     <li class="clearfix">
 	    <%= c.name -%>
 	    <div class="edit-holder alr">
@@ -13,8 +13,8 @@
 	        <li>
 	          <%= link_to "Edit", "", :class => "edit-but" -%>
 	          <ul class="edit-sub">
-		          <li> <%= link_to "Edit", edit_course_session_path(c,  :course_id => @course) -%></li>
-		          <li> <%= link_to "Delete", course_session_path(c, :course_id => @course ), :method => :delete -%></li>
+		          <li> <%= link_to "Edit", edit_courseSession_path(c,  :course_id => @course) -%></li>
+		          <li> <%= link_to "Delete", courseSession_path(c, :course_id => @course ), :method => :delete -%></li>
 	          </ul>
 	        </li>
 	      </ul>

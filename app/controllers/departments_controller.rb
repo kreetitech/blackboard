@@ -1,4 +1,5 @@
 class DepartmentsController < ApplicationController
+  before_filter :authenticate
 
   def index
     @departments = Department.all
@@ -33,5 +34,12 @@ class DepartmentsController < ApplicationController
     @department.destroy
     redirect_to departments_path
   end
+
+  protected
+  def authenticate
+    current_user && current_user.admin?
+  end
+
+
   
 end

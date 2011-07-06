@@ -1,5 +1,10 @@
-<%= form_for :course, :url => courses_path(:program_id => @program) do |t| %>
-  <%= t.label :name -%>
-  <%= t.text_field :name -%>
-  <%= t.submit %>
+
+
+<h2>Create Course</h2>
+<%= form_for :course, :url => courses_path(:program_id => @program), :method => :post do |f| %>
+  <%= f.label :name -%>
+  <%= f.text_field :name -%>
+
+  <%= f.submit %>
 <% end %>
+

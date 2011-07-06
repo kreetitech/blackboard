@@ -1,0 +1,112 @@
+
+<div id="navigation">
+<div id="main_tabs" class="clearfix">
+<ul>
+<li>
+<%= link_to "Departments", departments_path -%>
+</li>
+<li>
+<%= link_to "Faculty", members_path -%>
+</li>
+<li>
+<%= link_to "Students", members_path -%>
+</li>
+</ul>
+</div>
+</div>
+<div id="regis" class="all">
+<div id="add_faculty" class="clearfix">
+<h4 class="all">Add Faculty</h4>
+</div>
+
+<%= form_for :members, :url => members_path, :method => :post do |f| %>
+
+<h3 class="clearfix">Basic Info</h3>
+
+<label>Title*</label>
+<%= select_tag "title", "<option>Mr.</option><option>Mrs.</option><option>Miss</option>" -%>
+
+<label for="member_first_name" >First name*</label>
+ <%= f.text_field :first_name -%>
+
+<label for="member_last_name" >Last name*</label>
+ <%= f.text_field :last_name -%>
+
+<label for="member_password">Password*</label>
+ <%= f.text_field :password -%>
+
+<label for="member_password_confirmation">Password confirmation*</label>
+ <%= f.text_field :password_confirmation -%>
+
+<label for="member_registration_id">Registration ID*</label>
+ <%= f.text_field :registration_id -%>
+</li>
+<li>
+<label for="member_email">Email*</label>
+ <%= f.text_field :email -%>
+</li>
+
+<h4 class="all">Personal Info</h4>
+</div>
+<li>
+<label>Gender</label>
+<%= select_tag "gender", "<option>Male</option><option>Female</option>"-%></select>
+
+</li>
+<li>
+<label for="member_nationality">Nationality</label>
+ <%= f.text_field :nationality -%>
+</li>
+<li>
+<label for="member_qualification">Qualification</label>
+ <%= f.text_field :qualification -%>
+</li>
+<li>
+<label for="member_experience">Experience</label>
+ <%= f.text_field :experience -%>
+</li>
+
+<h4 class="all">Contact Info</h4>
+</div>
+<li>
+<label for="member_address">Address</label>
+ <%= f.text_field :address -%>
+</li>
+<li>
+<label for="member_zip_code">Zip code</label>
+ <%= f.text_field :zip_code -%>
+</li>
+<li>
+<label for="member_city">City</label>
+ <%= f.text_field :city -%>
+</li>
+<li>
+<label for="member_state">State</label>
+ <%= f.text_field :state -%>
+</li>
+<li>
+<label for="member_country">Country</label>
+ <%= f.text_field :country -%>
+</li>
+<li>
+<label for="member_phone">Phone</label>
+ <%= f.text_field :phone -%>
+</li>
+
+<h4 class="all">Academic Info</h4>
+</li>
+<li>
+<label>Department</label>
+<%= select_tag "Department*" ""-%></select>
+</li>
+<li>
+<label>Programme</label>
+<%= select_tag "Programme*" "" -%></select>
+</li>
+<li>
+<label>Course</label>
+<%= select_tag "Course*" "" -%></select>
+</li>
+</ul>
+<% end %>
+

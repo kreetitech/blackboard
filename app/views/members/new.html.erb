@@ -1,112 +1,107 @@
 
 <div id="navigation">
-<div id="main_tabs" class="clearfix">
-<ul>
-<li>
-<%= link_to "Departments", departments_path -%>
-</li>
-<li>
-<%= link_to "Faculty", members_path -%>
-</li>
-<li>
-<%= link_to "Students", members_path -%>
-</li>
-</ul>
-</div>
-</div>
-<div id="regis" class="all">
-<div id="add_faculty" class="clearfix">
-<h4 class="all">Add Faculty</h4>
-</div>
+  <div id="main_tabs" class="clearfix">
+    <ul>
 
-<%= form_for :members, :url => members_path, :method => :post do |f| %>
+      <%= link_to "Departments", departments_path -%>
 
-<h3 class="clearfix">Basic Info</h3>
+      <%= link_to "Faculty", members_path -%>
 
-<label>Title*</label>
-<%= select_tag "title", "<option>Mr.</option><option>Mrs.</option><option>Miss</option>" -%>
+      <%= link_to "Students", members_path -%>
 
-<label for="member_first_name" >First name*</label>
- <%= f.text_field :first_name -%>
+      <div id="regis" class="all">
+        <div id="add_faculty" class="clearfix">
+          <h4 class="all">Add Faculty</h4>
+      </div></div>
 
-<label for="member_last_name" >Last name*</label>
- <%= f.text_field :last_name -%>
+      <%= form_for :user, :url => members_path, :method => :post do |f| %>
+      <h4 class="all">User Info</h4>
 
-<label for="member_password">Password*</label>
- <%= f.text_field :password -%>
+      <label for="member_first_name" >First name*</label>
+      <%= f.text_field :first_name -%>
 
-<label for="member_password_confirmation">Password confirmation*</label>
- <%= f.text_field :password_confirmation -%>
+      <label for="member_last_name" >Last name*</label>
+      <%= f.text_field :last_name -%>
 
-<label for="member_registration_id">Registration ID*</label>
- <%= f.text_field :registration_id -%>
-</li>
-<li>
-<label for="member_email">Email*</label>
- <%= f.text_field :email -%>
-</li>
+      <label for="member_password">Password*</label>
+      <%= f.text_field :password -%>
 
-<h4 class="all">Personal Info</h4>
-</div>
-<li>
+      <label for="member_password_confirmation">Password confirmation*</label>
+      <%= f.text_field :password_confirmation -%>
+
+      <label for="member_email">Email*</label>
+      <%= f.text_field :email -%>
+
+
+      <%= fields_for :profile do |p| %>
+
+      <label>Title*</label>
+      <%= select_tag "title", "<option>Mr.</option><option>Mrs.</option><option>Miss</option>" -%>
+
+
+
+      <% end %>
+
+
+
+      <h4 class="all">Personal Info</h4>
+
+      <label for="member_father's_name">Father's Name</label>
+      <%= f.text_field :father_name -%>
+
+      <label for="member_nationality">Mother's Name</label>
+      <%= f.text_field :mother_name -%>
+
+      <label>Date Of Birth</label>
+      <%= select_tag "Date", "<option></option><option></option>" %></select>
+<%= select_tag "Month", "<option></option><option></option>" %></select>
+<%= select_tag "Year", "<option></option><option></option>"-%></select>
+
 <label>Gender</label>
 <%= select_tag "gender", "<option>Male</option><option>Female</option>"-%></select>
 
-</li>
-<li>
+
 <label for="member_nationality">Nationality</label>
- <%= f.text_field :nationality -%>
-</li>
-<li>
-<label for="member_qualification">Qualification</label>
- <%= f.text_field :qualification -%>
-</li>
-<li>
-<label for="member_experience">Experience</label>
- <%= f.text_field :experience -%>
-</li>
+<%= f.text_field :nationality -%>
+
+
+
+<label for="member_admission">Admission</label>
+<%= f.text_field :admission -%>
+
 
 <h4 class="all">Contact Info</h4>
-</div>
-<li>
-<label for="member_address">Address</label>
- <%= f.text_field :address -%>
-</li>
-<li>
-<label for="member_zip_code">Zip code</label>
- <%= f.text_field :zip_code -%>
-</li>
-<li>
-<label for="member_city">City</label>
- <%= f.text_field :city -%>
-</li>
-<li>
-<label for="member_state">State</label>
- <%= f.text_field :state -%>
-</li>
-<li>
-<label for="member_country">Country</label>
- <%= f.text_field :country -%>
-</li>
-<li>
-<label for="member_phone">Phone</label>
- <%= f.text_field :phone -%>
-</li>
+<%= fields_for :address do |d| %>
 
-<h4 class="all">Academic Info</h4>
-</li>
-<li>
-<label>Department</label>
-<%= select_tag "Department*" ""-%></select>
-</li>
-<li>
-<label>Programme</label>
-<%= select_tag "Programme*" "" -%></select>
-</li>
-<li>
-<label>Course</label>
-<%= select_tag "Course*" "" -%></select>
-</li>
-</ul>
+<label for="member_address">Address</label>
+<%= d.text_field :address -%>
+
+<label for="member_zip_code">Zip code</label>
+<%= d.text_field :zip_code -%>
+
+<label for="member_city">City</label>
+<%= d.text_field :city -%>
+
+<label for="member_state">State</label>
+<%= d.text_field :state -%>
+
+<label for="member_country">Country</label>
+<%= d.text_field :country -%>
+
+<label for="member_phone">Phone</label>
+<%= d.text_field :phone -%>
 <% end %>
 
+<h4 class="all">Academic Info</h4>
+
+<label>Department</label>
+<%= select_tag "Department*" ""-%></select>
+<label>Programme</label>
+<%= select_tag "Programme*" "" -%></select>
+
+<label>Course</label>
+<%= select_tag "Course*" "" -%></select>
+
+
+<%= f.submit "submit" -%>
+<% end %>

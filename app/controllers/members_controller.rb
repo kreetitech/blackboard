@@ -9,6 +9,8 @@ class MembersController < ApplicationController
 
   def create
      @member =  Member.create!(params[:department])
+     @user = User.Profile.create!(params[:members][:profiles])
+     @address = User.Address.create!(params[:members][:address])
     redirect_to members_path
   end
 

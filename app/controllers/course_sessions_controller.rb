@@ -29,7 +29,7 @@ class CourseSessionsController < ApplicationController
   def show
     @course =  Course.find(params[:department_id])
     @courseSession = @course.courseSessions.find(params[:id])
-    @courseSessions = @course.courseSession
+    
   end
 
   def destroy

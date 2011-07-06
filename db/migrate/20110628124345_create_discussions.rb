@@ -8,7 +8,7 @@ class CreateDiscussions < ActiveRecord::Migration
 
       t.timestamps
     end
-#add_foreign_key :discussions, :member_id, :member, :id
+  
   end
 
   def self.down

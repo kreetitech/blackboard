@@ -12,7 +12,9 @@ class CoursesController < ApplicationController
   def create
     @program = Program.find(params[:program_id])
     @program.courses.create!(params[:course])
+
     redirect_to program_path(@program, :department_id => @program.department.id)
+
   end
 
   def edit
@@ -28,8 +30,10 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @program = Program.find(params[:program_id])
+    @department = Department.find(params[:department_id])
+    @program = @department.programs.find(params[:program_id])
     @course = @program.courses.find(params[:id])
+    @courseSessions = @course.courseSession
   end
 
   def destroy
@@ -37,7 +41,7 @@ class CoursesController < ApplicationController
     @course = @program.courses.find(params[:id])
     @course.destroy
     redirect_to program_path(@program, :department_id => @program.department.id)
-   
+
   end
 
 end

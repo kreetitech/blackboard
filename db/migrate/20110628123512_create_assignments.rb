@@ -11,7 +11,7 @@ class CreateAssignments < ActiveRecord::Migration
       
       t.timestamps
     end
-#add_foreign_key :assignments, :member_id, :members, :id
+
 add_foreign_key :assignments, :course_id, :courses, :id
 
 

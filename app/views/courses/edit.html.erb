@@ -2,6 +2,9 @@
 <%= form_for @course, :url => course_path(@course, :program_id => @program), :method => :put do |t| %>
   <%= t.label :name -%>
   <%= t.text_field :name -%>
-  <%= t.submit "Edit" %>
-  <%= link_to "Cancel", "" %>
+  <%= t.submit -%>
 <% end %>
+
+
+
+

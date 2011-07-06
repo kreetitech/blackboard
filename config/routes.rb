@@ -8,6 +8,7 @@ Blackboard::Application.routes.draw do
   resources :programs
   resources :courses
   resources :members
+  resources :gradebooks
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

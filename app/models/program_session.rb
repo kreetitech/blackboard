@@ -1,5 +1,6 @@
 class ProgramSession < ActiveRecord::Base
   belongs_to :course
+  has_many :gradebooks
 attr_accessible :course_id
 validates_presence_of :title
 validates_presence_of :from_date

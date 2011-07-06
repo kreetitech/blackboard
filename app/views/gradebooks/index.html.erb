@@ -1,0 +1,34 @@
+<ul>
+  
+  
+  <div id="content_left" class="all">
+    <div id="dpt_header" class="clearfix">
+      <h4 class="all">gradbooks</h4>
+      <%= link_to "+ Add grade", new_gradebook_path, :class => "alr button" -%>
+
+    </div>
+    <ul id="departments">
+      <% @gradebooks.each do |d| %>
+      <li class="clearfix">
+	<%= link_to d.course_session_id, gradebook_path(d) -%>
+	<div class="edit-holder alr">
+	  <ul  class = "edit-box">
+	    <li>
+	      <%= link_to "update", update_gradebook_path(d), :class =>"edit-but" %>
+	    
+            <ul class="edit-sub">
+              <li>
+
+                <%= link_to "update",update_gradebook_path(d) -%>
+              </li>
+            </ul>
+	    </li>
+	  </ul>
+	</div>
+<% end %>
+</div>
+    </ul>
+</ul>
+
+
+

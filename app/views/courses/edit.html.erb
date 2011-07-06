@@ -1,6 +1,7 @@
-<%= form_for @course do |t| %>
+<h4 class="all">Edit Course</h4>
+<%= form_for @course, :url => course_path(@course, :program_id => @program), :method => :put do |t| %>
   <%= t.label :name -%>
   <%= t.text_field :name -%>
-  <%= t.submit "Update" %>
+  <%= t.submit "Edit" %>
   <%= link_to "Cancel", "" %>
 <% end %>

@@ -11,20 +11,20 @@ class CoursesController < ApplicationController
 
   def create
     @program = Program.find(params[:program_id])
-    @course = @program.courses.create!(params[:id])
+    @program.courses.create!(params[:course])
     redirect_to courses_path(:program_id => @program)
   end
 
   def edit
     @program = Program.find(params[:program_id])
-    @course = @program.course.find(params[:id])
+    @course = @program.courses.find(params[:id])
   end
 
   def update
-    @program = Program.find(params[:program_id])
-    @course = @program.courses.find(params[:id])
-    @course.update_attributes(params[:course])
-    redirect_to courses_path(:program_id => @program)
+    program = Program.find(params[:program_id])
+    course = program.courses.find(params[:id])
+    course.update_attributes(params[:course])
+    redirect_to program_path(program, :department_id => program.department.id)
   end
 
   def show

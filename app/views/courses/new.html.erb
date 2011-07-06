@@ -1,4 +1,4 @@
-<%= form_for :course, :url => course_path(:program_id => @program), :method => :post do |t| %>
+<%= form_for :course, :url => courses_path(:program_id => @program) do |t| %>
   <%= t.label :name -%>
   <%= t.text_field :name -%>
   <%= t.submit %>

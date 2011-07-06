@@ -1,0 +1,8 @@
+<h2>Create gradebook</h2>
+<%= form_for :gradebook, :url => gradebooks_path(:course_session_id => @course_session_id), :method => :post do |f| %>
+  <%= f.label :name -%>
+  <%= f.text_field :name -%>
+  <%= f.label :marks -%>
+  <%= f.text_field :marks -%>
+  <%= f.submit %>
+<% end %>

@@ -21,7 +21,6 @@ class DepartmentsController < ApplicationController
     @department = Department.find(params[:id])
     @department.update_attributes(params[:department])
     redirect_to departments_path
-    
   end
 
   def show

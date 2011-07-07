@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110706072131) do
+ActiveRecord::Schema.define(:version => 20110707085919) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "member_id",  :null => false
@@ -25,12 +25,14 @@ ActiveRecord::Schema.define(:version => 20110706072131) do
     t.datetime "updated_at"
   end
 
+  add_index "addresses", ["member_id"], :name => "fk_addresses_member_id_members_id"
+
   create_table "assignments", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "full_marks"
     t.datetime "due_date"
-    t.integer  "user_id",     :null => false
+    t.integer  "member_id",   :null => false
     t.integer  "course_id",   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -51,17 +53,6 @@ ActiveRecord::Schema.define(:version => 20110706072131) do
   add_index "comments", ["discussion_id"], :name => "fk_comments_discussion_id_discussions_id"
   add_index "comments", ["member_id"], :name => "fk_comments_member_id_members_id"
 
-  create_table "course_sessions", :force => true do |t|
-    t.string   "title"
-    t.datetime "from_date"
-    t.datetime "to_date"
-    t.integer  "course_id",  :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "course_sessions", ["course_id"], :name => "fk_program_sessions_course_id_courses_id"
-
   create_table "courses", :force => true do |t|
     t.string   "name"
     t.integer  "program_id", :null => false
@@ -80,22 +71,31 @@ ActiveRecord::Schema.define(:version => 20110706072131) do
   create_table "discussions", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "user_id",     :null => false
+    t.integer  "member_id",   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "gradebooks", :force => true do |t|
-    t.integer  "user_id",           :null => false
+    t.integer  "member_id",         :null => false
     t.integer  "course_session_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "gradebooks", ["course_session_id"], :name => "fk_gradebooks_course_session_id_course_sessions_course_id"
-  add_index "gradebooks", ["user_id"], :name => "fk_gradebooks_user_id_users_id"
+  add_index "gradebooks", ["member_id"], :name => "fk_gradebooks_member_id_members_id"
 
-  create_table "profiles", :force => true do |t|
+  create_table "member_courses", :force => true do |t|
+    t.integer  "member_id",  :null => false
+    t.integer  "course_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "member_courses", ["course_id"], :name => "fk_member_courses_course_id_courses_id"
+  add_index "member_courses", ["member_id"], :name => "fk_member_courses_member_id_members_id"
+
+  create_table "members", :force => true do |t|
     t.string   "registration_id"
     t.integer  "user_id",         :null => false
     t.string   "gender"
@@ -111,9 +111,18 @@ ActiveRecord::Schema.define(:version => 20110706072131) do
     t.datetime "updated_at"
   end
 
-  add_index "profiles", ["department_id"], :name => "fk_profiles_department_id_departments_id"
-  add_index "profiles", ["program_id"], :name => "fk_profiles_program_id_programs_id"
-  add_index "profiles", ["user_id"], :name => "fk_profiles_user_id_users_id"
+  add_index "members", ["user_id"], :name => "fk_members_user_id_users_id"
+
+  create_table "program_sessions", :force => true do |t|
+    t.string   "title"
+    t.datetime "from_date"
+    t.datetime "to_date"
+    t.integer  "course_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "program_sessions", ["course_id"], :name => "fk_program_sessions_course_id_courses_id"
 
   create_table "programs", :force => true do |t|
     t.string   "name"
@@ -125,15 +134,15 @@ ActiveRecord::Schema.define(:version => 20110706072131) do
 
   add_index "programs", ["department_id"], :name => "fk_programs_department_id_departments_id"
 
-  create_table "user_courses", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "course_id",  :null => false
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "user_courses", ["course_id"], :name => "fk_user_courses_course_id_courses_id"
-  add_index "user_courses", ["user_id"], :name => "fk_user_courses_user_id_profiles_id"
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

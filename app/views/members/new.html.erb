@@ -103,12 +103,12 @@
 <%= fields_for :profile do |p| %>
 
 <label>Department</label>
-<%= select_tag "Department*" ""-%></select><br />
+<%= p.select :department_id, Department.all.collect {|p| [p.name, p.id]} -%></select><br />
 <label>Programme</label>
 <%= p.select :program_id, Program.all.collect {|p| [p.name, p.id]} -%></select><br />
 
 <label>Course</label>
-<%= select_tag "Course*" "" -%></select><br />
+<%= p.select :course_id, Course.all.collect {|p| [p.name, p.id]} -%></select><br />
 <% end %>
 
 <%= f.submit "submit" -%>

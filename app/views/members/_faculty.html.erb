@@ -1,0 +1,93 @@
+<div>
+  <h2 class="content-header">Add Faculty</h2>
+</div>
+<%= form_for :user, :url => members_path, :method => :post do |f| %>
+<h4 class="form-info-header">User Info</h4>
+
+<label for="member_first_name" >First name*</label>
+<%= f.text_field :first_name -%><br />
+
+<label for="member_last_name" >Last name*</label>
+<%= f.text_field :last_name -%><br />
+
+<label for="member_password">Password*</label>
+<%= f.text_field :password -%><br />
+
+<label for="member_password_confirmation">Password confirmation*</label>
+<%= f.text_field :password_confirmation -%><br />
+
+<label for="member_email">Email*</label>
+<%= f.text_field :email -%><br />
+
+
+<%= fields_for :profile do |p| %>
+<%= p.hidden_field :department_id, :value => 1 %>
+<%= p.hidden_field :member_id, :value => 2 %>
+<label>Title*</label>
+<%= select_tag "title", "<option>Mr.</option><option>Mrs.</option><option>Miss</option>" -%><br />
+
+<label for="member_registration_id">Registration ID*</label>
+<%= p.text_field :registration_id -%><br />
+
+
+
+
+<h4  class="form-info-header">Personal Info</h4>
+
+
+
+
+
+<label>Gender</label>
+<%= select_tag "gender", "<option>Male</option><option>Female</option>"-%></select><br />
+
+
+<label for="member_nationality">Nationality</label>
+<%= p.text_field :nationality -%><br />
+
+
+
+<label for="member_admission">Qualification</label>
+<%= p.text_field :qualification -%><br />
+
+<label for="member_admission">Experience</label>
+<%= p.text_field :experience -%><br />
+
+<% end %>
+<h4  class="form-info-header">Contact Info</h4>
+<%= fields_for :address do |d| %>
+
+<label for="member_address">Address</label>
+<%= d.text_field :address -%><br />
+
+<label for="member_zip_code">Zip code</label>
+<%= d.text_field :zipcode -%><br />
+
+<label for="member_city">City</label>
+<%= d.text_field :city -%><br />
+
+<label for="member_state">State</label>
+<%= d.text_field :state -%><br />
+
+<label for="member_country">Country</label>
+<%= d.text_field :country -%><br />
+
+<label for="member_phone_resi">Phone</label>
+<%= d.text_field :phone_resi -%><br />
+<%= d.text_field :phone_mob -%><br />
+<% end %>
+
+<h4  class="form-info-header">Academic Info</h4>
+<%= fields_for :profile do |p| %>
+
+<label>Department</label>
+<%= p.select :department_id, Department.all.collect {|p| [p.name, p.id]} -%></select><br />
+<label>Programme</label>
+<%= p.select :program_id, Program.all.collect {|p| [p.name, p.id]} -%></select><br />
+
+<label>Course</label>
+<%=p.select :course_id, Course.all.collect {|p| [p.name, p.id]} -%></select><br />
+<% end %>
+
+<%= f.submit "submit" -%>
+<% end %>

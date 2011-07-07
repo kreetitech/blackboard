@@ -1,0 +1,13 @@
+
+
+<h2>Create Course sessions</h2>
+<%= form_for :course_session, :url => course_session_path(:course_id => @course), :method => :post do |f| %>
+  <%= f.label :name -%>
+  <%= f.text_field :name -%>
+ <%= f.label :from_date -%>
+  <%= f.text_field :from_date -%>
+ <%= f.label :to_date -%>
+  <%= f.text_field :to_date -%>
+  <%= f.submit %>
+<% end %>
+

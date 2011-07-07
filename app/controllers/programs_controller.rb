@@ -21,7 +21,7 @@ class ProgramsController < ApplicationController
   def edit
     @department = Department.find(params[:department_id])
     @program = @department.programs.find(params[:id])
-    @title = "Edit"
+   
   end
 
   def update

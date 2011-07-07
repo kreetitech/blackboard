@@ -32,10 +32,11 @@ before_filter :authenticate
   end
 
   def show
-    @department = Department.find(params[:department_id])
-    @program = @department.programs.find(params[:program_id])
+    @program = Program.find(params[:program_id])
+    @department = @program.department
     @course = @program.courses.find(params[:id])
-    @courseSessions = @course.courseSession
+    @course_sessions = @course.course_sessions
+
   end
 
   def destroy

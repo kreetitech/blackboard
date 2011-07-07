@@ -2,7 +2,7 @@
   <h3><%= link_to "Department", departments_path -%> >> <%= link_to @department.name -%> >> <%= link_to @program.name -%> <%= link_to @course.name -%><h3>
   <div id="dpt_header" class="clearfix">
     <h4>CourseSessions</h4>
-    <%= link_to "+ Add Course Sessions", new_courseSession_path(:course_id => @course), :class => "alr button" -%>
+    <%= link_to "+ Add Course Sessions", new_course_session_path(:course_id => @course), :class => "alr button" -%>
   </div>
   <ul id="departments">
     <% @courseSessions.each do |c| -%>

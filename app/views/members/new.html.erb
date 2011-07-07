@@ -57,9 +57,8 @@
 <%= p.text_field :mother_name -%><br />
 
 <label>Date Of Birth</label>
-<%= select_tag "Date", "<option></option><option></option>" %></select>
-<%= select_tag "Month", "<option></option><option></option>" %></select>
-<%= select_tag "Year", "<option></option><option></option>"-%></select><br />
+<%= date_select("post", "date_of_birth", :prompt => { :year => 'Select year', :month => 'Select month', :day => 'Select day'  }) -%>
+<br />
 
 <label>Gender</label>
 <%= select_tag "gender", "<option>Male</option><option>Female</option>"-%></select><br />
@@ -108,7 +107,7 @@
 <%= p.select :program_id, Program.all.collect {|p| [p.name, p.id]} -%></select><br />
 
 <label>Course</label>
-<%= p.select :course_id, Course.all.collect {|p| [p.name, p.id]} -%></select><br />
+<%=p.select :course_id, Course.all.collect {|p| [p.name, p.id]} -%></select><br />
 <% end %>
 
 <%= f.submit "submit" -%>

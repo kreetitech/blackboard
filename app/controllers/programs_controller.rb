@@ -1,4 +1,5 @@
 class ProgramsController < ApplicationController
+  before_filter :authenticate
 
   def index
     @department = Department.find(params[:department_id])
@@ -44,5 +45,11 @@ class ProgramsController < ApplicationController
     redirect_to department_path(@department)
 
   end
+
+   protected
+  def authenticate
+    current_user && current_user.admin?
+  end
+
 
 end

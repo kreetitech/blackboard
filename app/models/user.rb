@@ -4,6 +4,19 @@ class User < ActiveRecord::Base
   ADMIN = 0
   STUDENT = 1
   FACULTY = 2
+
+    @@user_types = {}
+  @@user_types[ADMIN] = "admin"
+  @@user_types[STUDENT] = "student"
+  @@user_types[FACULTY] = "faculty"
+
+  @@user_types.each do |key, value|
+    value.sub!(' ', '_')
+    define_method("#{value}?") do
+      self.user_type == key
+    end
+  end
+
   # Include default devise modules. Others available are:
 
   devise :database_authenticatable, :registerable,

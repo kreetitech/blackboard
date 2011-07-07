@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
 
+before_filter :authenticate
+
   def index
     @program = Program.find(params[:program_id])
     @courses = @program.courses
@@ -42,6 +44,12 @@ class CoursesController < ApplicationController
     @course.destroy
     redirect_to program_path(@program, :department_id => @program.department.id)
 
+  end
+
+ protected
+
+  def authenticate
+    current_user && current_user.admin?
   end
 
 end

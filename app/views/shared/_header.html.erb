@@ -21,8 +21,8 @@
     <% if current_user && current_user.admin? %>
     <ul>
       <li><%= link_to "Departments", departments_path -%></li>
-      <li><%= link_to "Faculty", members_path -%></li>
-      <li><%= link_to "Students", members_path -%></li>
+      <li><%= link_to "Faculty", new_member_path -%></li>
+      <li><%= link_to "Students", new_member_path(:user => "student") -%></li>
     </ul>
     <% end %>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110707085919) do
+ActiveRecord::Schema.define(:version => 20110708053029) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "member_id",  :null => false
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(:version => 20110707085919) do
   add_index "comments", ["discussion_id"], :name => "fk_comments_discussion_id_discussions_id"
   add_index "comments", ["member_id"], :name => "fk_comments_member_id_members_id"
 
+  create_table "course_sessions", :force => true do |t|
+    t.string   "title"
+    t.datetime "from_date"
+    t.datetime "to_date"
+    t.integer  "course_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "course_sessions", ["course_id"], :name => "fk_course_sessions_course_id_courses_id"
+
   create_table "courses", :force => true do |t|
     t.string   "name"
     t.integer  "program_id", :null => false
@@ -83,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20110707085919) do
     t.datetime "updated_at"
   end
 
+  add_index "gradebooks", ["course_session_id"], :name => "fk_gradebooks_course_session_id_course_sessions_course_id"
   add_index "gradebooks", ["member_id"], :name => "fk_gradebooks_member_id_members_id"
 
   create_table "member_courses", :force => true do |t|
@@ -112,17 +124,6 @@ ActiveRecord::Schema.define(:version => 20110707085919) do
   end
 
   add_index "members", ["user_id"], :name => "fk_members_user_id_users_id"
-
-  create_table "program_sessions", :force => true do |t|
-    t.string   "title"
-    t.datetime "from_date"
-    t.datetime "to_date"
-    t.integer  "course_id",  :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "program_sessions", ["course_id"], :name => "fk_program_sessions_course_id_courses_id"
 
   create_table "programs", :force => true do |t|
     t.string   "name"

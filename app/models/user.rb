@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
   has_one :member
   has_many :addresses
+
   ADMIN = 0
   STUDENT = 1
   FACULTY = 2
 
-    @@user_types = {}
+  @@user_types = {}
   @@user_types[ADMIN] = "admin"
   @@user_types[STUDENT] = "student"
   @@user_types[FACULTY] = "faculty"

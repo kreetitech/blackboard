@@ -1,20 +1,15 @@
 class Member < ActiveRecord::Base
-  has_many :addresses
-  has_many :assignments
-  has_many :discussions
   belongs_to :user
   belongs_to :department
   belongs_to :program
-  has_many :departments
+
+  has_many :addresses
+  has_many :assignments
+  has_many :discussions
   has_many :member_courses
   has_many :gradebooks
-  attr_accessible :user_id,:department_id,:program_id
-# validators
- # validates_presence_of :registration_id
-  #validates_uniqueness_of :registration_id
-  #validates_presence_of :gender
-  #validates_presence_of :nationality
-  #validates_presence_of :father_name
-  #validates_presence_of :date_of_birth
+
+  validates_presence_of :registration_id
+
 
 end

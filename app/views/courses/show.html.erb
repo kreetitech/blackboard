@@ -7,7 +7,7 @@
   <ul id="departments">
     <% @course_sessions.each do |c| -%>
     <li class="clearfix">
-	    <%= c.title -%>
+	    <%= link_to c.title,  course_session_path(c, :course_id => @course ) -%>
 	    <div class="edit-holder alr">
 	      <ul class="edit-box">
 	        <li>

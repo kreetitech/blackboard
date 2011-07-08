@@ -1,13 +1,16 @@
 
 
-<h2>Create Course sessions</h2>
+<h2>Create  sessions</h2>
 <%= form_for :course_session, :url => course_sessions_path(:course_id => @course), :method => :post do |f| %>
+  <br>
+  <br>
   <%= f.label :title -%>
-  <%= f.text_field :title -%></br>
+  <%= f.text_field :title -%><br><br><br>
   <%= f.label :from_date -%>
-  <%= f.text_field :from_date -%></br>
+  <%= f.text_field :from_date -%>
   <%= f.label :to_date -%>
-  <%= f.text_field :to_date -%>
-  <%= f.submit %>
+  <%= f.text_field :to_date -%><br>
+  <br><br>
+ <%= f.submit %>
 <% end %>
 

@@ -35,11 +35,9 @@ class DepartmentsController < ApplicationController
     redirect_to departments_path
   end
 
-  protected
+    protected
   def authenticate
     current_user && current_user.admin?
   end
 
-
-  
-end
+  end

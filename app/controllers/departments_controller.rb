@@ -37,7 +37,16 @@ class DepartmentsController < ApplicationController
 
   protected
   def authenticate
-    current_user && current_user.admin?
+     return true if (current_user && current_user.admin)
+	if true 
+	redirect_to :controller => 'Department', :action => "new"
+	redirect_to :controller => 'Department', :action => "edit"
+	redirect_to :controller => 'Department', :action => "update"
+	redirect_to :controller => 'Department', :action => "destroy"
+         else
+          access_denied
+          
+ 	
   end
 
 

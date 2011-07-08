@@ -5,12 +5,15 @@
   <%= stylesheet_link_tag "main" %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
+  
 </head>
 <body>
   <div id="wrapper">
     <%= render :partial => "shared/header" -%>
     <div id="main-content">
-      <div id="content_right" class="alr"></div>
+      <div id="content_right" class="alr">
+	
+      </div>
       <div id="content_left" class="all">
 	<%= yield %>
       </div>

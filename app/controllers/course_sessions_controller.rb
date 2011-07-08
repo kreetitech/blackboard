@@ -19,9 +19,6 @@ class CourseSessionsController < ApplicationController
       redirect_to course_path(@course, :program_id => @course.program.id)
   end
 
-  def index
-     @course_session = Course_session.all
-  end
 
   def update
       course = Course.find(params[:course_id])
@@ -37,7 +34,7 @@ class CourseSessionsController < ApplicationController
     @department = @program.department
     @course_sessions = @course.course_sessions.find(params[:id])
     @gradebooks = @course_sessions.gradebooks
-    
+
   end
 
   def destroy

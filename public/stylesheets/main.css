@@ -12,6 +12,13 @@ width:100%;
 }
 th{
 width:10%;
+padding:15px;
+ background-color:#FF9900;
+}
+
+td{
+width:10%;
+padding:15px;
 }
 body
 {
@@ -190,6 +197,7 @@ visibility:hidden;
 {
 	padding:15px 0;
 	border-bottom:1px solid #cccccc;
+	width:100%;
 }
 #dpt_header h4
 {

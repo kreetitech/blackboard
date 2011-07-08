@@ -1,7 +1,8 @@
 class MembersController < ApplicationController
 
   def index
-    @member = Member.all
+   
+    @users = User.all
   end
 
   def new
@@ -32,7 +33,6 @@ class MembersController < ApplicationController
 
   def show
      @member = Member.find(params[:id])
-     @member =  @member.
   end
 
   def destroy
@@ -41,5 +41,4 @@ class MembersController < ApplicationController
     redirect_to members_path
   end
 
-end
 end

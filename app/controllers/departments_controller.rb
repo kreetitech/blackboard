@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-  before_filter :authenticate
+  before_filter :authenticate, :except => [:index, :show]
 
   def index
     @departments = Department.all
@@ -35,9 +35,10 @@ class DepartmentsController < ApplicationController
     redirect_to departments_path
   end
 
-    protected
+  protected
+
   def authenticate
     current_user && current_user.admin?
   end
 
-  end
+end

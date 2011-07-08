@@ -1,22 +1,6 @@
-<div id="navigation">
-  <div id="main_tabs" class="clearfix">
-    <ul>
-
-      <li><%= link_to "Departments", departments_path -%></li>
-
-      <li><%= link_to "Faculty", members_path -%></li>
-
-      <li><%= link_to "Students", members_path -%></li>
-
-      </ul>
-</div></div>
-
 <div>
-
   <h2 class="content-header">Add Students</h2>
 </div>
-
-
 <%= form_for :user, :url => members_path, :method => :post do |f| %>
 <h4 class="form-info-header">User Info</h4>
 

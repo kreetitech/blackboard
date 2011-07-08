@@ -15,6 +15,20 @@ input
 {
 align:auto
 }
+.notice{
+    background-color: green;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    text-align: center;
+}
+.alert{
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    text-align: center;
+}
 #add_faculty
 {
 font-size: large;

@@ -1,7 +1,7 @@
 <div>
   <h2 class="content-header">Add Students</h2>
 </div>
-<%= form_for :user, :url => members_path, :method => :post do |f| %>
+<%= form_for :user, :url => members_path,:html => { :multipart => true }, :method => :post do |f| %>
 <h4 class="form-info-header">User Info</h4>
 
 <label for="member_first_name" >First name*</label>
@@ -33,6 +33,8 @@
 
 
 <h4  class="form-info-header">Personal Info</h4>
+
+<%= p.file_field :photo %><br />
 
 <label for="member_father_name">Father's Name</label>
 <%= p.text_field :father_name -%><br />

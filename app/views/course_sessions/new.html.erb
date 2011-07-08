@@ -2,8 +2,8 @@
 
 <h2>Create Course sessions</h2>
 <%= form_for :course_session, :url => course_sessions_path(:course_id => @course), :method => :post do |f| %>
-  <%= f.label :name -%>
-  <%= f.text_field :name -%></br>
+  <%= f.label :title -%>
+  <%= f.text_field :title -%></br>
   <%= f.label :from_date -%>
   <%= f.text_field :from_date -%></br>
   <%= f.label :to_date -%>

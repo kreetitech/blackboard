@@ -1,0 +1,16 @@
+<h4 class="all">Edit Course session</h4>
+<%= form_for @course_session, :url => course_session_path(@course_session, :course_id => @course), :method => :put do |t| %>
+  <br/>
+  <br/>
+  <%= t.label :title -%>
+  <%= t.text_field :title -%>
+  <%= t.label :from_date -%>
+  <%= t.text_field :from_date -%>
+  <%= t.label :to_date -%>
+  <%= t.text_field :to_date -%>
+  <%= t.submit -%>
+<% end %>
+
+
+
+

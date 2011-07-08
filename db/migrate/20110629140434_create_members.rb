@@ -9,7 +9,8 @@ class CreateMembers < ActiveRecord::Migration
        t.string :father_name
        t.string :mother_name
        t.datetime :date_of_birth
-       t.text :experience
+
+      t.text :experience
        t.integer :department_id, :null => false
        t.integer :program_id, :null => false
        t.timestamps

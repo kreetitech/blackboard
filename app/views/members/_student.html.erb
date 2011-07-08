@@ -11,10 +11,10 @@
 <%= f.text_field :last_name -%><br />
 
 <label for="member_password">Password*</label>
-<%= f.text_field :password -%><br />
+<%= f.password_field :password -%><br />
 
 <label for="member_password_confirmation">Password confirmation*</label>
-<%= f.text_field :password_confirmation -%><br />
+<%= f.password_field :password_confirmation -%><br />
 
 <label for="member_email">Email*</label>
 <%= f.text_field :email -%><br />
@@ -22,7 +22,7 @@
 
 <%= fields_for :profile do |p| %>
 <%= p.hidden_field :department_id, :value => 1 %>
-<%= p.hidden_field :member_id, :value => 2 %>
+
 <label>Title*</label>
 <%= select_tag "title", "<option>Mr.</option><option>Mrs.</option><option>Miss</option>" -%><br />
 
@@ -54,7 +54,7 @@
 
 
 <label for="member_admission">Admission</label>
-<%= p.text_field :admission -%><br />
+<%= date_select("post", "admission", :prompt => { :year => 'Select year', :month => 'Select month', :day => 'Select day'  }) -%>
 
 <% end %>
 <h4  class="form-info-header">Contact Info</h4>
@@ -89,9 +89,10 @@
 <%= p.select :department_id, Department.all.collect {|p| [p.name, p.id]} -%></select><br />
 <label>Programme</label>
 <%= p.select :program_id, Program.all.collect {|p| [p.name, p.id]} -%></select><br />
-
+<% end %>
+<%= fields_for :member_courses do |m| %>
 <label>Course</label>
-<%=p.select :course_id, Course.all.collect {|p| [p.name, p.id]} -%></select><br />
+<%=m.select :course_id, Course.all.collect {|m| [m.name, m.id]} -%></select><br />
 <% end %>
 
 <%= f.submit "submit" -%>

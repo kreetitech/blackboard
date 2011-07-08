@@ -1,0 +1,26 @@
+<div>
+  <h3><%= link_to "course", courses_path -%> >> <%= link_to @course.name -%> >> <%= link_to @course_session_id.name -%> <%= link_to @assignment.name -%><h3>
+  <div id="dpt_header" class="clearfix">
+    <h4>assignments</h4>
+    <%= link_to "+ Add ", new_assignment_path(:course_id => @course), :class => "alr button" -%>
+  </div>
+  <ul id="departments">
+    <% @assignments.each do |c| -%>
+    <li class="clearfix">
+	    <%= c.name -%>
+	    <div class="edit-holder alr">
+	      <ul class="edit-box">
+	        <li>
+	          <%= link_to "Edit", "", :class => "edit-but" -%>
+	          <ul class="edit-sub">
+			  <li> <%= link_to "unpublish", edit_assignment_path(c,  :course_id => @course) -%></li>		
+		          <li> <%= link_to "Edit", edit_assignment_path(c,  :course_id => @course) -%></li>
+		          <li> <%= link_to "Delete",delete_ assignment_path(c, :course_id => @course ), :method => :delete -%></li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div>
+    </li>
+    <% end %>
+  </ul>
+</div>

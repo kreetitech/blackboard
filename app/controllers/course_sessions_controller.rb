@@ -1,18 +1,21 @@
 class CourseSessionsController < ApplicationController
+  def index
+     @course = Course.find(params[:course_id])
+     @courseSessions = @course.courseSessions
+  end
+
   def new
+     @course = Course.find(params[:course_id])
   end
 
   def edit
-     @course_session = Course_session.find(params[:id])
+     @courseSession = Course_session.find(params[:id])
   end
 
   def create
       @course_session = Course_session.create!(params[:course_session])
       @course = Course.find(params[:course_id])
-      @course.course_sessions.create!(params[:course])
-      redirect_to program_path(@course, :program_id => @course.program.id, :department_id => @program.department_id)
-  end
-    redirect_to program_sessions_path
+      redirect_to course_path(@course, :program_id => @course.program.id)
   end
 
   def index

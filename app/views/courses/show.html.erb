@@ -1,12 +1,11 @@
-<div>
-  <h3><%= link_to "Department", departments_path -%> >> <%= link_to @department.name -%> >> <%= link_to @program.name -%> <%= link_to @course.name -%><h3>
-  <br>
-  <br>
-  <div id="dpt_header" class="clearfix">
+<div id="content_left" class="all">
+    <div class="content-header clearfix">
+       <h3><%= link_to "Department", departments_path -%> >> <%= link_to @department.name -%> >> <%= link_to @program.name -%> <%= link_to @course.name -%><h3>
+      <h2 class="all">Sessions</h2>
+       <%= link_to "+ Add Sessions", new_course_session_path(:course_id => @course), :class => "alr button" -%>
+      
+    </div>
 
-    <h4>Sessions</h4>
-    <%= link_to "+ Add Sessions", new_course_session_path(:course_id => @course), :class => "alr button" -%>
-  </div>
   <ul id="departments">
     <% @course_sessions.each do |c| -%>
     <li class="clearfix">

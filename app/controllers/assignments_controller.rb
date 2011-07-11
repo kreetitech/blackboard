@@ -15,7 +15,7 @@ class AssignmentsController < ApplicationController
     assignment = @course_session.assignments.new(params[:assignments])
     assignment.member_id = current_user.id
     assignment.save!
-    redirect_to course_session_path(@course_session, :course_id => @course_session.course.id)
+    redirect_to assignments_path(@course_sessio)
   end
 
 

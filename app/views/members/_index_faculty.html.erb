@@ -1,0 +1,71 @@
+ 
+<div id="content_left" class="all">
+    <div class="content-header clearfix">
+     
+      
+      <h2 class="all">Our Faculty</h2>
+      <%= link_to "+ Add Faculty", new_member_path, :class => "alr button" -%>
+    </div>
+   </div>
+  <ul id="departments">
+
+  <li class="clearfix">
+      <table>
+	<tr>
+	  <th>
+	</th>
+
+	<th>
+	  ID
+	</th>
+	<th>
+	  Name
+	</th>
+	<th>
+	  Email
+	</th>
+	
+	<th>
+	  Department
+	</th>
+	<th>
+	  Programme
+	</th>
+	<th>
+	  Courses
+	</th>
+
+	<th>
+	</th>
+
+	</tr>
+
+     
+	<tr>
+	 
+        <% @users.each do |u| %>
+	 
+	  <td></td>
+	  <td><%= u.id -%></td> 
+	  <td><%= u.first_name + " " + u.last_name if u.first_name && u.last_name -%></td>
+	  <td><%= u.email -%></td>
+	  <td><%= u.member.department.name if u.member -%></td>
+	  <td><%= u.member.program.name if u.member -%></td>
+	  <td><%= u.member.course.name if u.member -%></td>
+	  <td>
+          </td>
+	 
+	   </tr>
+
+	<br />
+	  <% end %>
+
+</table> 
+    
+	</li>	  
+  </ul>
+
+
+
+
+

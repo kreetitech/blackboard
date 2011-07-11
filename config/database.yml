@@ -9,7 +9,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: blackboard_development
+  database: blackboard_development_new
   pool: 5
   username: root
   password: kreeti

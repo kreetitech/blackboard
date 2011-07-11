@@ -6,9 +6,11 @@
 <label>Date Of Issue of Assignment</label>
 <%= f.date_select :due_date, :start_year => 1900, :end_year => Time.now.year, :order => [:day,:month, :year] -%>
 <br/>
-<%=  f.label :full_marks -%>
-<%= f.text_field :full_marks-%>
+  <%=  f.label :full_marks -%>
+  <%= f.number_field :full_marks-%>
 
+<label>due_date</label>
+<%= date_select("post", "due_date", :prompt => { :year => 'Select year', :month => 'Select month', :day => 'Select day'  }) -%>
 <br>
 <%= f.submit %>
 <% end -%>

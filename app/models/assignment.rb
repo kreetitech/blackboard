@@ -1,6 +1,6 @@
 class Assignment < ActiveRecord::Base
   belongs_to :member
-  belongs_to :course
+  belongs_to :course_session
   has_many :comments
 
   # validator

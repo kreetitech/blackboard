@@ -53,6 +53,17 @@
 	  <td><%= u.member.program.name if u.member -%></td>
 	  <td><%= u.member.course.name if u.member -%></td>
 	  <td>
+	    <div class="edit-holder alr">
+	      <ul class="edit-box">
+	        <li>
+	          <%= link_to "Edit", new_member_path , :class => "edit-but" -%>
+	          <ul class="edit-sub">
+		          <li> <%= link_to "Edit",new_member_path -%></li>
+		          <li> <%= link_to "Delete", new_member_path , :method => :delete -%></li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div>
           </td>
 	 
 	   </tr>

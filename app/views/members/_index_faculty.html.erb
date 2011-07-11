@@ -1,8 +1,8 @@
- 
+
 <div id="content_left" class="all">
     <div class="content-header clearfix">
-     
-      
+
+
       <h2 class="all">Our Faculty</h2>
       <%= link_to "+ Add Faculty", new_member_path, :class => "alr button" -%>
     </div>
@@ -24,7 +24,7 @@
 	<th>
 	  Email
 	</th>
-	
+
 	<th>
 	  Department
 	</th>
@@ -40,18 +40,18 @@
 
 	</tr>
 
-     
+
 	<tr>
-	 
+
         <% @users.each do |u| %>
-	 
+
 	  <td></td>
-	  <td><%= u.id -%></td> 
+	  <td><%= u.id -%></td>
 	  <td><%= u.first_name + " " + u.last_name if u.first_name && u.last_name -%></td>
 	  <td><%= u.email -%></td>
 	  <td><%= u.member.department.name if u.member -%></td>
 	  <td><%= u.member.program.name if u.member -%></td>
-	  <td><%= u.member.course.name if u.member -%></td>
+
 	  <td>
 	    <div class="edit-holder alr">
 	      <ul class="edit-box">
@@ -65,15 +65,15 @@
 	      </ul>
 	    </div>
           </td>
-	 
+
 	   </tr>
 
 	<br />
 	  <% end %>
 
-</table> 
-    
-	</li>	  
+</table>
+
+	</li>
   </ul>
 
 

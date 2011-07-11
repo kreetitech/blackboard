@@ -121,11 +121,11 @@ ActiveRecord::Schema.define(:version => 20110711063439) do
     t.integer  "program_id",         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "admission"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.datetime "admission"
   end
 
   add_index "members", ["user_id"], :name => "fk_members_user_id_users_id"

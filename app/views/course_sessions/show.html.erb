@@ -6,11 +6,11 @@
       <h4 class="all">Assignments</h4>
     </div>
 
-       <%= link_to "+ Add assignment", new_assignment_path, :class => "alr button" -%>
+       <%= link_to "+ Add assignment", new_assignment_path(:course_session_id => @course_session), :class => "alr button" -%>
       <ul id="departments">
         <li class="clearfix">
            <% @assignments.each do |c| -%>
-	        <%= link_to c.title, assignment_path(c,:course_id => @course) -%>
+	        <%= link_to c.title, assignment_path(c) -%>
 	        <div class="edit-holder alr">
 	          <ul class="edit-box">
 	            <li>

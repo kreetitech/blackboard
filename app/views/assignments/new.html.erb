@@ -1,16 +1,14 @@
 <h2>Create Assignments</h2>
-<%= form_for :Assignments, :url => assignments_path(:course_id => @course), :method => :post do |f| %>
-  <%= f.label :title -%>
-  <%= f.text_field :title -%>
-
+<%= form_for :assignments, :url => assignments_path(:course_session_id => @course_session), :method => :post do |f| %>
+<%= f.label :title -%>
+<%= f.text_field :title -%>
+<%=f.hidden_field:course_session_id,:value => 4 %>
 <label>Date Of Issue of Assignment</label>
-<%= date_select("post", "date_of_assignment", :prompt => { :year => 'Select year', :month => 'Select month', :day => 'Select day'  }) -%>
+<%= f.date_select :due_date, :start_year => 1900, :end_year => Time.now.year, :order => [:day,:month, :year] -%>
 <br/>
-  <%=  f.label :full_marks -%>
-  <%= f.text_field :full_marks-%>
+<%=  f.label :full_marks -%>
+<%= f.text_field :full_marks-%>
 
-<label>Date Of submission</label>
-<%= date_select("post", "date_of_submission", :prompt => { :year => 'Select year', :month => 'Select month', :day => 'Select day'  }) -%>
 <br>
 <%= f.submit %>
-<% end %>
+<% end -%>

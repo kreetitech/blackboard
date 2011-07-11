@@ -7,10 +7,12 @@
 <%= date_select("post", "date_of_assignment", :prompt => { :year => 'Select year', :month => 'Select month', :day => 'Select day'  }) -%>
 <br/>
   <%=  f.label :full_marks -%>
-  <%= f.text_field :full_marks-%>
+  <%= f.number_field :full_marks-%>
 
-<label>Date Of submission</label>
-<%= date_select("post", "date_of_submission", :prompt => { :year => 'Select year', :month => 'Select month', :day => 'Select day'  }) -%>
+<label>due_date</label>
+<%= date_select("post", "due_date", :prompt => { :year => 'Select year', :month => 'Select month', :day => 'Select day'  }) -%>
+
+ 
 <br>
 <%= f.submit %>
 <% end %>

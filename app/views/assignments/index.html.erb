@@ -2,7 +2,7 @@
   <h3><%= link_to "course", courses_path -%> >> <%= link_to @course.name -%> >> <%= link_to @course_session_id.name -%> <%= link_to @assignment.name -%><h3>
   <div id="dpt_header" class="clearfix">
     <h4>assignments</h4>
-    <%= link_to "+ Add ", new_assignment_path(:course_id => @course), :class => "alr button" -%>
+    <%= link_to "+ Add ", new_assignments_path(:course_id => @course), :class => "alr button" -%>
   </div>
   <ul id="departments">
     <% @assignments.each do |c| -%>

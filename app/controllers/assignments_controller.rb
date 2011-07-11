@@ -6,12 +6,9 @@ class AssignmentsController < ApplicationController
   end
 
   def new
-  #  Assignment.create!(param[:assignment])
-  end
+    end
  
- def new
-  #  Assignment.create!(param[:assignment])
-  end
+ 
  
   def create
    Assignment.create!(params[:assignment])
@@ -21,10 +18,10 @@ class AssignmentsController < ApplicationController
   
   def edit
      @course = Course.find(params[:course_id])
-    @courseSession = @course.courseSessions(params[:course_session_id])
-    @assignment= @courseSession.assigments(params[:id])
-    @assigment.update_attributes(params[:assignment])
-    redirect_to assigments_path
+     @courseSession = @course.courseSessions(params[:course_session_id])
+     @assignment= @courseSession.assigments(params[:id])
+     @assigment.update_attributes(params[:assignment])
+     redirect_to assigments_path
   end
 
   def show 
@@ -35,7 +32,7 @@ class AssignmentsController < ApplicationController
   end
 
   def delete
-   @assignment = Assignment.find(params[:id])
+    @assignment = Assignment.find(params[:id])
     @assignent.destroy
     redirect_to assignments_path
   end

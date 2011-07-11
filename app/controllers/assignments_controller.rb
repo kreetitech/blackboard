@@ -1,8 +1,8 @@
 class AssignmentsController < ApplicationController
 
    def index
-    @course_session = CourseSession.find(params[:coursesession_id])
-    @assignments = @courseSessions.assignment
+    @course_session = CourseSession.find(params[:course_session_id])
+    @assignments = @course_session.assignments
   end
 
   def new
@@ -16,7 +16,7 @@ class AssignmentsController < ApplicationController
     assignment = @course_session.assignments.new(params[:assignments])
     assignment.member_id = current_user.id
     assignment.save!
-    redirect_to assignments_path(@course_sessio)
+    redirect_to assignments_path(:course_session_id => @course_session)
 
   end
 

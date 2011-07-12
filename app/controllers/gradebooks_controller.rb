@@ -4,12 +4,12 @@ class GradebooksController < ApplicationController
   end
 
   def new
-    @program_session = ProgramSession.find(params[:course_id])
-    @course = @program_session.course
+    @program_session = CourseSession.find(params[:course_session_id])
+    @course = @course_session.course
   end
 
   def create
-      @program_session = ProgramSession.find(params[:course_id])
+      @program_session = CourseSession.find(params[:course_session_id])
       @program_session.gradebook.create!(params[:gradebook])
   end
 

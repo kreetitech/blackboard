@@ -1,5 +1,5 @@
 <h2>Create Assignments</h2>
-<%= form_for :assignments, :url => assignments_path(:course_session_id => @course_session), :method => :post do |f| %>
+<%= form_for :assignments, :url => assignments_path(:course_session_id => @course_session_id), :method => :post do |f| %>
 <%= f.label :title -%>
 <%= f.text_field :title -%>
 <label>Date Of Issue of Assignment</label>

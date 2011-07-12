@@ -7,7 +7,7 @@ class AssignmentsController < ApplicationController
 
   def new
 
-    @course_session =  CourseSession.find(params[:id])
+    @course_session =  CourseSession.find(params[:course_session_id])
   end
 
 

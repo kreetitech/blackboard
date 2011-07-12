@@ -1,7 +1,7 @@
 
 
 <h2>Create  sessions</h2>
-<%= form_for :course_session, :url => assignment_path(:course_id => @course), :method => :post do |f| %>
+<%= form_for :course_session, :url => course_sessions_path(:course_id => @course), :method => :post do |f| %>
   <br>
   <br>
   <%= f.label :title -%>

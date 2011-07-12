@@ -11,11 +11,10 @@
   <ul id="departments">
     <% @assignments.each do |c| -%>
     <li class="clearfix">
-	     <%= link_to c.title, assignment_path(c) -%>
+	     <%= link_to c.title, assignment_path(c) -%></li>
 	    <div class="edit-holder alr">
 	      <ul class="edit-box">
 	        <li>
-	          <%= link_to "Edit", "", :class => "edit-but" -%>
 	          <ul class="edit-sub">
 			  <li> <%= link_to "unpublish", edit_assignment_path(c,:course_id => @course) -%></li>
 		          <li> <%= link_to "Edit", edit_assignment_path(c,:course_id => @course) -%></li>

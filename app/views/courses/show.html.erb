@@ -26,8 +26,8 @@
 	        <li>
 	          <%= link_to "Edit", "", :class => "edit-but" -%>
 	          <ul class="edit-sub">
-		          <li> <%= link_to "Edit", edit_course_session_path(c,  :course_id => @course) -%></li>
-		          <li> <%= link_to "Delete", course_session_path(c, :course_id => @course ), :method => :delete -%></li>
+		          <li> <%= link_to "Edit", edit_course_session_path(c,:course_id => @course) -%></li>
+		          <li> <%= link_to "Delete", course_session_path(c,:course_id => @course), :method => :delete -%></li>
 	          </ul>
 	        </li>
 	      </ul>

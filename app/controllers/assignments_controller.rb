@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
 
-   def index
+  def index
     @course_session = CourseSession.find(params[:course_session_id])
     @assignments = @course_session.assignments
   end
@@ -17,33 +17,34 @@ class AssignmentsController < ApplicationController
     assignment.member_id = current_user.id
     assignment.save!
     redirect_to assignments_path(:course_session_id => @course_session)
-
   end
 
 
   def edit
+    @course_session = CourseSession.find(params[:course_session_id])
+    @assignment= @course_session.assignments.find(params[:id])
 
-    @courseSession = CourseSession.find(params[:course_session_id])
-    @assignment= @courseSession.assigments(params[:id])
   end
 
   def update
-    coursesession = CourseSession.find(params[:coursesession_id])
+    course_session = CourseSession.find(params[:course_session_id])
     assignment = course_session.assignments.find(params[:id])
     assignment.update_attributes(params[:assignment])
     redirect_to course_session_path(course_session,:course_id => course_session.course.id)
-
   end
+
   def show
     @course = Course.find(params[:course_id])
-    @courseSessions = @course.courseSessions(params[:course_session_id])
-    @courseSession.assignments
+    @course_sessions = @course.courseSessions(params[:course_session_id])
+    @course_session.assignments
     redirect_to course_session_path(@course_session, :course_id => @course_session.course.id)
   end
 
-  def delete
-    @assignment = Assignment.find(params[:id])
-    @assignent.destroy
-    redirect_to course_session_path(@course_session, :course_id => @course_session.course.id)
+  def destroy
+    @course_session = CourseSession.find(params[:course_session_id])
+    @assignment = @course_session.assignments.find(params[:id])
+   # @assignment = Assignment.find(params[:id])
+    @assignment.destroy
+    redirect_to course_session_path(@course_session,:course_id => @course_session.course.id)
   end
 end

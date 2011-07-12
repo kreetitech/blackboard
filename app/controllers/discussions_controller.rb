@@ -16,7 +16,7 @@ class DiscussionsController < ApplicationController
     @assignment = Assignment.find(params[:assisgnment_id])
     @assignment.discussions.create!(params[:discussion])
 
-    redirect_to assignment_path()
+    redirect_to discoussion_path()
   end
 
   def edit
@@ -37,13 +37,14 @@ class DiscussionsController < ApplicationController
     @course = @session.course
     @program = @course.program
     @department = @program.department
+    redirect_to assignment_path()
   end
 
   def destroy
     @assignment = Assignment.find(params[:assignment_id])
     @discussion = @assignment.discussions.find(params[:id])
     @discussion.destroy
-
+    redirect_to assignment_path()
   end
    protected
 

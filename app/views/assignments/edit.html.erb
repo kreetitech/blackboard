@@ -1,6 +1,8 @@
-<ul>
-  <% @assignment.each do |p| %>
-  <li><%= p.title -%></li>
-  
-  <% end %>
-</ul>
+<h4 class="all">Edit Assignments</h4>
+<%= form_for @assignment, :url => assignment_path(@assignment, :course_session_id => @course_session), :method => :put do |t| %>
+  <br/>
+  <br/>
+  <%= t.label :name -%>
+  <%= t.text_field :title -%>
+  <%= t.submit -%>
+<% end %>

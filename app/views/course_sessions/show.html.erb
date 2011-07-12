@@ -7,7 +7,9 @@
     </div>
 
        <%= link_to "+ Add assignment", new_assignment_path(:course_session_id => @course_session), :class => "alr button" -%>
-      <ul id="departments">
+   <br>
+   <br>
+   <ul id="departments">
         <li class="clearfix">
            <% @assignments.each do |c| -%>
 	        <%= link_to c.title, assignment_path(c) -%>
@@ -16,8 +18,8 @@
 	            <li>
 	              <%= link_to "Edit", "", :class => "edit-but" -%>
 	              <ul class="edit-sub">
-		              <li> <%= link_to "Edit", edit_course_session_path(c,  :course_id => @course) -%></li>
-		              <li> <%= link_to "Delete", course_session_path(c, :course_id => @course ), :method => :delete -%></li>
+		              <li> <%= link_to "Edit", edit_assignment_path(c,:course_session_id => @course_session) -%></li>
+		              <li> <%= link_to "Delete", assignment_path(c,:course_session_id => @course_session), :method => :delete -%></li>
 	              </ul>
 	            </li>
 	          </ul>

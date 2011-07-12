@@ -1,17 +1,24 @@
 class GradebooksController < ApplicationController
   def index
+    @course_session = CourseSession.find(params[:course_session_id])
+    @assignments = @course_session.gradebooks
 
   end
 
   def new
-    @program_session = CourseSession.find(params[:course_session_id])
+    @course_session = CourseSession.find(params[:course_session_id])
     @course = @course_session.course
   end
 
   def create
-      @program_session = CourseSession.find(params[:course_session_id])
-      @program_session.gradebook.create!(params[:gradebook])
+      @course_session = CourseSession.find(params[:course_session_id])
+      gradebook= @course_session.gradebooks.new(params[:gradebook])
+      gradebook.member_id = current_user.id
+      gradebook.save!
+      redirect_to gradebooks_path(:course_session_id => @course_session) 
+          
   end
+
 
   def update
     @gradebook = Gradebook.find(params[:id])
@@ -22,3 +29,4 @@ class GradebooksController < ApplicationController
   def show
     @gradebook = Gradebook.find(params[:id])
   end
+end

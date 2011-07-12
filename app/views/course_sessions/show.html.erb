@@ -1,4 +1,4 @@
- <h3><%= link_to "Department", departments_path -%> >> <%= link_to @department.name -%> >> <%= link_to @program.name -%> >> <%= link_to @course.name -%> >> <%= link_to @course_session.title-%><h3>
+<h3><%= link_to "Department", departments_path -%> >> <%= link_to @department.name, department_path(@department) -%> >> <%= link_to @program.name, program_path(@program.id, :department_id => @department.id) -%> >> <%= link_to @course.name, course_path(@course.id, :program_id => @program.id) -%> >> <%= @course_session.title-%><h3>
 
       <br>
       <br>
@@ -10,16 +10,17 @@
    <br>
    <br>
    <ul id="departments">
-        <li class="clearfix">
+
            <% @assignments.each do |c| -%>
-	        <%= link_to c.title, assignment_path(c) -%>
+	         <li class="clearfix">
+  <%= link_to c.title, assignment_path(c) -%>
 	        <div class="edit-holder alr">
 	          <ul class="edit-box">
 	            <li>
 	              <%= link_to "Edit", "", :class => "edit-but" -%>
 	              <ul class="edit-sub">
 		              <li> <%= link_to "Edit", edit_assignment_path(c,:course_session_id => @course_session) -%></li>
-		              <li> <%= link_to "Delete", assignment_path(c,:course_session_id => @course_session), :method => :delete -%></li>
+		              <li> <%= link_to "Delete", assignment_path(c,:course_session_id => @course_session), :method => :delete -%>     </li>
 	              </ul>
 	            </li>
 	          </ul>

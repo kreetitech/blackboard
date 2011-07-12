@@ -13,6 +13,7 @@ before_filter :authenticate
 
   def create
     @program = Program.find(params[:program_id])
+
     @program.courses.create!(params[:course])
 
     redirect_to program_path(@program, :department_id => @program.department.id)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110711063439) do
+ActiveRecord::Schema.define(:version => 20110712111517) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "member_id",  :null => false
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20110711063439) do
     t.integer  "course_session_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "marks"
   end
 
   add_index "gradebooks", ["course_session_id"], :name => "fk_gradebooks_course_session_id_course_sessions_course_id"

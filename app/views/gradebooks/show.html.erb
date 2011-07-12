@@ -7,13 +7,13 @@
   <ul id="departments">
     <% @gradebook.each do |p| -%>
     <li class="clearfix">
-	    <%= link_to p.marks, course_path(p, :course_session_id => @course_session_id) -%>
+	    <%= link_to p.marks, course_path(p, :course_session_id => @course_session) -%>
 	    <div class="edit-holder alr">
 	      <ul class="edit-box">
 	        <li>
-	          <%= link_to "Edit",update_gradebook_path(p,  :course_session_id => @course_session_id), :class => "edit-but" -%>
+	          <%= link_to "Edit",update_gradebook_path(p,  :course_session_id => @course_session), :class => "edit-but" -%>
 	          <ul class="edit-sub">
-		          <li> <%= link_to "Edit",update_gradebook_path(p,  :course_session_id => @course_session_id) -%></li>
+		          <li> <%= link_to "Edit",update_gradebook_path(p,  :course_session_id => @course_session) -%></li>
 		        
 	          </ul>
 	        </li>

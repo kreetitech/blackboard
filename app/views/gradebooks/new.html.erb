@@ -1,8 +1,13 @@
 <h2>Create gradebook</h2>
-<%= form_for :gradebook, :url => gradebooks_path(:course_session_id => @course_session_id), :method => :post do |f| %>
-  <%= f.label :name -%>
-  <%= f.text_field :name -%>
+<%= form_for :gradebook, :url => gradebooks_path(:course_session_id => @course_session), :method => :post do |f| %>
+  <%= f.label :course_session_id -%>
+  <%= f.number_field :course_session_id -%>
+  
   <%= f.label :marks -%>
-  <%= f.text_field :marks -%>
+  <%= f.number_field :marks -%>
+
+  <label>members</label>
+  <%= f.select :member_id,Member.all.collect {|f| [f.user_id,f.id]} -%></select><br />
+
   <%= f.submit %>
 <% end %>

@@ -4,12 +4,12 @@ class DiscussionsController < ApplicationController
   before_filter :authenticate
 
   def index
-    @assignment = Assignment.find(params[:assisgnment_id])
+    @assignment = Assignment.find(params[:assignment_id])
     @discussions = @assignment.discussions
   end
 
   def new
-    @assignment = Assignment.find(params[:assignment_id])
+    @discussion = Assignment.find(params[:assignment_id])
   end
 
   def create

@@ -3,26 +3,26 @@
 
   <div id="content_left" class="all">
     <div class="content-header clearfix">
-      <h4 class="all">Assignments</h4>
-      <%= link_to "+ Add Department", new_assignments_path, :class => "alr button" -%>
+      <h4 class="all">Discussions</h4>
+      <%= link_to "+ Add Discussion", new_discussion_path, :class => "alr button" -%>
 
     </div>
     <ul id="departments">
-      <% @assignments.each do |d| %>
+      <% @discussions.each do |d| %>
       <li id="pg" class="clearfix">
-	<%= link_to d.name, assignment_path(d) -%>
+	<%= link_to d.name, discussion_path(d) -%>
 	<div class="edit-holder alr">
 	  <ul  class = "edit-box">
 	    <li>
-	      <%= link_to "Edit", edit_assignment_path(d), :class =>"edit-but" %>
+	      <%= link_to "Edit", edit_discussion_path(d), :class =>"edit-but" %>
 
             <ul class="edit-sub">
               <li>
 
-                <%= link_to "Edit", edit_assignment_path(d) -%>
+                <%= link_to "Edit", edit_discussion_path(d) -%>
               </li>
               <li>
-                <%= link_to "Delete", assignment_path(d), :method => :delete -%>
+                <%= link_to "Delete", discussion_path(d), :method => :delete -%>
               </li>
 	    </ul>
 	    </li>

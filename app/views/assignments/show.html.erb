@@ -3,14 +3,14 @@
 
   <div id="content_left" class="all">
     <div class="content-header clearfix">
-      <h4 class="all">Discussions</h4>
+      <h2>Discussions</h2>
       <%= link_to "+ Add Discussion", new_discussion_path(:assignment_id => @assignment.id), :class => "alr button" -%>
 
     </div>
     <ul id="departments">
       <% @discussions.each do |d| %>
-      <li id="pg" class="clearfix">
-	<%= link_to d.name, discussion_path(d) -%>
+      <li  class="clearfix">
+	<%= link_to d.title, discussion_path(d) -%>
 	<div class="edit-holder alr">
 	  <ul  class = "edit-box">
 	    <li>

@@ -2,7 +2,6 @@ class DepartmentsController < ApplicationController
   before_filter :authenticate, :except => [:index, :show]
 
   def index
-
     @departments = Department.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
@@ -27,6 +26,7 @@ class DepartmentsController < ApplicationController
 
   def show
     @department = Department.find(params[:id])
+    @program = @department.programs
     # @program = @department.programs.paginate :page => params[:page], :order => 'created_at DESC'
   end
 

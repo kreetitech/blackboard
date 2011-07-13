@@ -1,12 +1,13 @@
-
+<%= will_paginate @programs %>
+<%= page_entries_info @programs %>
   <div id="content_left" class="all">
     <div class="content-header clearfix">
       <h3><%= link_to "Department", departments_path -%> >> <%= @department.name -%></h3>
       <h2 class="all">Programme</h2>
       <%= link_to "+ Add Program", new_program_path(:department_id => @department), :class => "alr button" -%>
     </div>
-  
- 
+
+
  <ul id="departments">
     <% @program.each do |p| -%>
     <li class="clearfix">

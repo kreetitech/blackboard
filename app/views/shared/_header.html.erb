@@ -22,7 +22,7 @@
     <ul>
       <li><%= link_to "Departments", departments_path -%></li>
       <li><%= link_to "Faculty", members_path -%></li>
-      <li><%= link_to "Students", members_path -%></li>
+      <li><%= link_to "Students", members_path(:user => 'student') -%></li>
     </ul>
     <% end %>
   </div>

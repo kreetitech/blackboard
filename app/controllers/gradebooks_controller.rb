@@ -7,7 +7,7 @@ class GradebooksController < ApplicationController
 
   def new
     @course_session = CourseSession.find(params[:course_session_id])
-    @course = @course_session.course
+    @course = @course_session.courses
   end
 
   def create

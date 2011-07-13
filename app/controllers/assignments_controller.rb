@@ -36,7 +36,8 @@ class AssignmentsController < ApplicationController
   def show
     @course_session = CourseSession.find(params[:course_session_id])
     @assignment = @course_session.assignments.find(params[:id])
-    @discussions = @assignment.discussions
+    @discussions = @assignment.discussions.paginate :page => params[:page], :order => 'created_at DESC'
+
 
   end
 

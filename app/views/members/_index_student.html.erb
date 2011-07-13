@@ -21,18 +21,18 @@
 	<th>
 	  Email
 	</th>
-	<th>
-	  Admission-date
+		<th>
+	  Admission_Date
 	</th>
 	<th>
 	  Department
 	</th>
 	<th>
-	  Program
+	  Programme
 	</th>
 
 	<th>
-	</th>
+	  </th>
       </tr>
 
       <% @users.each do |u| %>
@@ -44,6 +44,19 @@
 	<td><%= u.member.admission -%></td>
 	<td><%= u.member.department.name if u.member -%></td>
 	<td><%= u.member.program.name if u.member -%></td>
+	<td>
+	 <div class="edit-holder alr">
+	      <ul class="edit-box">
+	        <li>
+	          <%= link_to "Edit", new_member_path , :class => "edit-but" -%>
+	          <ul class="edit-sub">
+		          <li> <%= link_to "Edit",new_member_path(:user => "student") -%></li>
+		          <li> <%= link_to "Delete", new_member_path(:user => "student") , :method => :delete -%></li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div>
+	  </td>
       </tr>
       <% end %>
 	

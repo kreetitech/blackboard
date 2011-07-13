@@ -7,4 +7,8 @@ class Assignment < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :full_marks
   validates_presence_of :due_date
+
+  cattr_reader :per_page
+  @@per_page = 10
+
 end

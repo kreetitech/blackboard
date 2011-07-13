@@ -36,7 +36,8 @@ before_filter :authenticate
     @program = Program.find(params[:program_id])
     @department = @program.department
     @course = @program.courses.find(params[:id])
-    @course_sessions = @course.course_sessions
+    @course_sessions = @course.course_sessions.paginate :page => params[:page], :order => 'created_at DESC'
+
 
   end
 

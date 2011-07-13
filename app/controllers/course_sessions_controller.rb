@@ -34,7 +34,7 @@ class CourseSessionsController < ApplicationController
     @department = @program.department
     @course_session = @course.course_sessions.find(params[:id])
     @gradebooks = @course_session.gradebooks
-    @assignments = @course_session.assignments
+    @assignments = @course_session.assignments.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def destroy

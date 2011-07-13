@@ -1,3 +1,5 @@
+<%= will_paginate @assignments %>
+<%= page_entries_info @assignments %>
 <h3><%= link_to "Department", departments_path -%> >> <%= link_to @department.name, department_path(@department) -%> >> <%= link_to @program.name, program_path(@program.id, :department_id => @department.id) -%> >> <%= link_to @course.name, course_path(@course.id, :program_id => @program.id) -%> >> <%= @course_session.title-%><h3>
 
       <br

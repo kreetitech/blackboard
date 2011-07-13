@@ -36,16 +36,21 @@ class AssignmentsController < ApplicationController
   def show
     @course_session = CourseSession.find(params[:course_session_id])
     @assignment = @course_session.assignments.find(params[:id])
-    @discussions = @assignment.discussions
+
+
     @course = @course_session.course
     @program = @course.program
     @department = @program.department
+
+    @discussions = @assignment.discussions.paginate :page => params[:page], :order => 'created_at DESC'
+
+
+
   end
 
   def destroy
     @course_session = CourseSession.find(params[:course_session_id])
     @assignment = @course_session.assignments.find(params[:id])
-   # @assignment = Assignment.find(params[:id])
     @assignment.destroy
     redirect_to course_session_path(@course_session,:course_id => @course_session.course.id)
   end

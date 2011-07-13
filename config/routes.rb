@@ -11,6 +11,7 @@ Blackboard::Application.routes.draw do
   resources :gradebooks
   resources :course_sessions
   resources :assignments
+  resources :discussions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

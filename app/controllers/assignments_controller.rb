@@ -34,10 +34,10 @@ class AssignmentsController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:course_id])
-    @course_sessions = @course.courseSessions(params[:course_session_id])
-    @course_session.assignments
-    redirect_to course_session_path(@course_session, :course_id => @course_session.course.id)
+    @course_session = CourseSession.find(params[:course_session_id])
+    @assignment = @course_session.assignments.find(params[:id])
+    @discussions = @assignment.discussions
+
   end
 
   def destroy

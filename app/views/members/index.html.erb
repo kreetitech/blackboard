@@ -2,4 +2,5 @@
 <%= render :partial => "members/index_student" -%>
 <% else %>
 <%= render :partial => "members/index_faculty" -%>
+ redirect_to member_path
 <% end %>

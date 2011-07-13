@@ -2,10 +2,12 @@ class MembersController < ApplicationController
  
 
  def index 
-
-   @users = User.all
-
-end
+   if params[:user] = "student"
+   @users = User.where("user_type =?", User::STUDENT)
+   else
+    @users = User.where("user_type =?", User::FACULTY) 
+   end
+ end
 
   def new
     @user = User.new

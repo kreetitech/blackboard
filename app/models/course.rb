@@ -7,4 +7,7 @@ class Course < ActiveRecord::Base
   has_many :members, :through => :member_courses
 
   validates_presence_of :name
+  cattr_reader :per_page
+  @@per_page = 10
+
 end

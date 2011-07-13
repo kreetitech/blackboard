@@ -46,7 +46,7 @@ class DiscussionsController < ApplicationController
     @assignment = Assignment.find(params[:assignment_id])
     @discussion = @assignment.discussions.find(params[:id])
     @discussion.destroy
-    redirect_to assignment_path()
+    redirect_to discussions_path(:assignment_id => @assignment.id )
   end
    protected
 

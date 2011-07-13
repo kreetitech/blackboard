@@ -19,7 +19,7 @@
              <%= link_to "Edit", "", :class => "edit-but" -%>
 	          <ul class="edit-sub">
 			        <li> <%= link_to "Edit", edit_discussion_path(c,:assignment_id => c.assignment.id ) -%></li>
-		          <li> <%= link_to "Delete", discussion_path(c, :course_id => @course ), :method => :delete -%></li>
+		          <li> <%= link_to "Delete", discussion_path(c,:assignment_id => c.assignment.id ), :method => :delete -%></li>
 	          </ul>
 	        </li>
 	      </ul>

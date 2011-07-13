@@ -1,6 +1,8 @@
+<h3> <%= link_to "Department",departments_path -%> >> <%=link_to @department.name, department_path(@department) -%> >>  <%= link_to @program.name, program_path(@program.id, :department_id => @department.id) -%> >> <%=link_to @course.name, course_path(@course, :program_id => @program.id)-%> >> <%= link_to @course_session.title, course_session_path(@course_session, :course_id => @course.id) -%> >> <%=  @assignment.title -%>
+
+
+
 <ul>
-
-
   <div id="content_left" class="all">
     <div class="content-header clearfix">
       <h2>Discussions</h2>

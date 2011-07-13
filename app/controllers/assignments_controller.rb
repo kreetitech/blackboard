@@ -37,7 +37,9 @@ class AssignmentsController < ApplicationController
     @course_session = CourseSession.find(params[:course_session_id])
     @assignment = @course_session.assignments.find(params[:id])
     @discussions = @assignment.discussions
-
+    @course = @course_session.course
+    @program = @course.program
+    @department = @program.department
   end
 
   def destroy

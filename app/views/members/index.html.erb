@@ -1,6 +1,6 @@
-<% if params[:user] == "student" %>
-<%= render :partial => "members/index_student" -%>
-<% else %>
+<%= params %>
+<% if params["user"] == "faculty" %>
 <%= render :partial => "members/index_faculty" -%>
- redirect_to member_path
+<% else %>
+<%= render :partial => "members/index_student" -%>
 <% end %>

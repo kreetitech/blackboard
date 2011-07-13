@@ -1,0 +1,9 @@
+<h2> Edit Discussions</h2>
+<br/>
+<br/>
+<% form_for @discussion, :url => discussion_path(@discussion.id, :assignment_id => @discussion.assignment.id), :method => :put do |t| %>
+   <%= t.label :name -%>
+   <%= t.text_field :title -%>
+   <%= t.submit -%>
+
+<% end %>

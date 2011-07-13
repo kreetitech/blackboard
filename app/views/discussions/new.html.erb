@@ -1,0 +1,7 @@
+<h2> Create Discussions</h2>
+
+<% form_for :discussion, :url => discussions_path(:assignment_id => @assignment.id), :method => :post do |f| %>
+   <%= f.label :title -%>
+   <%= f.text_field :title -%>
+   <%= f.submit %>
+<% end%>

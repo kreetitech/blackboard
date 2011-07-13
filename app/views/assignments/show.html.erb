@@ -4,7 +4,7 @@
   <div id="content_left" class="all">
     <div class="content-header clearfix">
       <h4 class="all">Discussions</h4>
-      <%= link_to "+ Add Discussion", new_discussion_path, :class => "alr button" -%>
+      <%= link_to "+ Add Discussion", new_discussion_path(:assignment_id => @assignment.id), :class => "alr button" -%>
 
     </div>
     <ul id="departments">
@@ -14,7 +14,7 @@
 	<div class="edit-holder alr">
 	  <ul  class = "edit-box">
 	    <li>
-	      <%= link_to "Edit", edit_discussion_path(d), :class =>"edit-but" %>
+	      <%= link_to "Edit", edit_discussion_path(:assignment_id => d.assignment_id), :class =>"edit-but" %>
 
             <ul class="edit-sub">
               <li>

@@ -5,7 +5,7 @@
   <div id="dpt_header" class="clearfix">
     <h4>Discussions</h4>
 
-    <%= link_to "+ Add discussions ", new_discussion_path(:course_session_id => @course_session), :class => "alr button" -%>
+    <%= link_to "+ Add discussions ", new_discussion_path(:assignment_id => @assignment.id), :class => "alr button" -%>
 
   </div>
 
@@ -18,8 +18,7 @@
 	        <li>
              <%= link_to "Edit", "", :class => "edit-but" -%>
 	          <ul class="edit-sub">
-			        <li><%= link_to "unpublish", edit_assignment_path(c,:course_id => @course) -%></li>
-		          <li> <%= link_to "Edit", edit_discussion_path(c,:course_id => @course) -%></li>
+			        <li> <%= link_to "Edit", edit_discussion_path(c,:assignment_id => c.assignment.id ) -%></li>
 		          <li> <%= link_to "Delete", discussion_path(c, :course_id => @course ), :method => :delete -%></li>
 	          </ul>
 	        </li>

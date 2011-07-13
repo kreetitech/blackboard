@@ -9,26 +9,28 @@ class DiscussionsController < ApplicationController
   end
 
   def new
-    @discussion = Assignment.find(params[:assignment_id])
+    @assignment = Assignment.find(params[:assignment_id])
   end
 
   def create
-    @assignment = Assignment.find(params[:assisgnment_id])
-    @assignment.discussions.create!(params[:discussion])
+    @assignment = Assignment.find(params[:assignment_id])
+    discussion = @assignment.discussions.new(params[:discussion])
+    discussion.member_id = current_user.id
+    discussion.save!
 
-    redirect_to discoussion_path()
+    redirect_to discussions_path(:assignment_id => @assignment.id)
   end
 
   def edit
-    @assignment = Assignment.find(params[:assisgnment_id])
-    @discussion = @assignment.discussion.find(params[:id])
+    @assignment = Assignment.find(params[:assignment_id])
+    @discussion = @assignment.discussions.find(params[:id])
   end
 
   def update
-    assignment = Assignment.find(params[:assisgnment_id])
-    discussion = assignment.discussion.find(params[:id])
+    assignment = Assignment.find(params[:assignment_id])
+    discussion = assignment.discussions.find(params[:id])
     discussion.update_attributes(params[:discussion])
-    redirect_to assignment_path()
+    redirect_to discussions_path(:assignment_id => assignment.id)
   end
 
   def show
@@ -37,7 +39,7 @@ class DiscussionsController < ApplicationController
     @course = @session.course
     @program = @course.program
     @department = @program.department
-    redirect_to assignment_path()
+
   end
 
   def destroy

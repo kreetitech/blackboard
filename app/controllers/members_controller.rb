@@ -1,11 +1,11 @@
 class MembersController < ApplicationController
- 
 
- def index 
-   if params[:user] = "student"
-   @users = User.where("user_type =?", User::STUDENT)
+
+ def index
+   if params["student"]
+     @users = User.where("user_type =?", User::STUDENT)
    else
-    @users = User.where("user_type =?", User::FACULTY) 
+    @users = User.where("user_type =?", User::FACULTY)
    end
  end
 
@@ -20,7 +20,11 @@ class MembersController < ApplicationController
       @address = @member.addresses.create!(params[:address])
        @member_courses = @member.member_courses.create!(params[:member_courses])
     end
-    redirect_to members_path
+    if params["student"]
+       redirect_to members_path(:student => true)
+    else
+      redirect_to members_path
+    end
   end
 
   def edit

@@ -1,50 +1,33 @@
 <div id="content_left" class="all">
-    <div class="content-header clearfix">
-      <h2 class="all">Our Student</h2>
-      <%= link_to "+ Add Student", new_member_path(:user => "student"), :class => "alr button" -%>
-    </div>
+  <div class="content-header clearfix">
+    <h2 class="all">Our Student</h2>
+    <%= link_to "+ Add Student", new_member_path(:student => true), :class => "alr button" -%>
+  </div>
 </div>
 
 <ul id="departments">
   <li class="clearfix">
     <table>
       <tr>
-	<th>
-	</th>
-
-	<th>
-	  ID
-	</th>
-	<th>
-	  Name
-	</th>
-	<th>
-	  Email
-	</th>
-		<th>
-	  Admission_Date
-	</th>
-	<th>
-	  Department
-	</th>
-	<th>
-	  Programme
-	</th>
-
-	<th>
-	  </th>
+	      <th></th>
+	      <th>ID</th>
+	      <th>Name</th>
+	      <th>Email</th>
+		    <th>Admission_Date</th>
+	      <th>Department</th>
+	      <th>Programme</th>
+	      <th></th>
       </tr>
-
       <% @users.each do |u| %>
       <tr>
-	<td></td>
-	<td><%= u.id -%></td> 
-	<td><%= link_to u.first_name + " " + u.last_name, member_path(u.member) if u.first_name && u.last_name -%></td>
-	<td><%= u.email -%></td>
-	<td><%= u.member.admission -%></td>
-	<td><%= u.member.department.name if u.member -%></td>
-	<td><%= u.member.program.name if u.member -%></td>
-	<td>
+	      <td><%= image_tag u.member.photo.url(:thumb), :alt => "", :width => 55, :height => 55 if u.member %></td>
+	      <td><%= u.member.registration_id  if u.member -%></td>
+	      <td><%= link_to u.first_name + " " + u.last_name, member_path(u.member) if u.first_name && u.last_name -%></td>
+	      <td><%= u.email -%></td>
+	      <td><%= u.member.admission -%></td>
+	      <td><%= u.member.department.name if u.member -%></td>
+	      <td><%= u.member.program.name if u.member -%></td>
+	      <td>
 	 <div class="edit-holder alr">
 	      <ul class="edit-box">
 	        <li>
@@ -59,9 +42,9 @@
 	  </td>
       </tr>
       <% end %>
-	
-</table> 
-    
-</li>	  
+
+</table>
+
+</li>
   </ul>
 </div>

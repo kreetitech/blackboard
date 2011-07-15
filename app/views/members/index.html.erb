@@ -1,7 +1,5 @@
-
-<%= params %>
-<% if params["user"] == "faculty" %>
-<%= render :partial => "members/index_faculty" -%>
-<% else %>
+<% if params["student"] %>
 <%= render :partial => "members/index_student" -%>
+<% else %>
+<%= render :partial => "members/index_faculty" -%>
 <% end %>

@@ -1,80 +1,48 @@
-
 <div id="content_left" class="all">
-    <div class="content-header clearfix">
-
-
-      <h2 class="all">Our Faculty</h2>
-      <%= link_to "+ Add Faculty", new_member_path, :class => "alr button" -%>
-    </div>
+   <div class="content-header clearfix">
+     <h2 class="all">Our Faculty</h2>
+     <%= link_to "+ Add Faculty", new_member_path, :class => "alr button" -%>
    </div>
-  <ul id="departments">
-
+</div>
+<ul id="departments">
   <li class="clearfix">
-      <table>
-	<tr>
-	  <th>
-	</th>
-
-	<th>
-	  ID
-	</th>
-	<th>
-	  Name
-	</th>
-	<th>
-	  Email
-	</th>
-
-	<th>
-	  Department
-	</th>
-	<th>
-	  Programme
-	</th>
-	<th>
-	  Courses
-	</th>
-
-	<th>
-	</th>
-
-	</tr>
-
-
-	<tr>
-
+    <table>
+	    <tr>
+	      <th></th>
+	      <th>ID</th>
+	      <th>Name</th>
+	      <th>Email</th>
+	      <th>Department</th>
+	      <th>Programme</th>
+	      <th>Courses</th>
+	      <th></th>
+      </tr>
+	    <tr>
         <% @users.each do |u| %>
-
-	  <td></td>
-	  <td><%= u.id -%></td>
-	  <td><%= u.first_name + " " + u.last_name if u.first_name && u.last_name -%></td>
-	  <td><%= u.email -%></td>
-	  <td><%= u.member.department.name if u.member -%></td>
-	  <td><%= u.member.program.name if u.member -%></td>
-
-	  <td>
-	    <div class="edit-holder alr">
-	      <ul class="edit-box">
-	        <li>
-	          <%= link_to "Edit", new_member_path , :class => "edit-but" -%>
-	          <ul class="edit-sub">
-		          <li> <%= link_to "Edit",new_member_path -%></li>
-		          <li> <%= link_to "Delete", new_member_path , :method => :delete -%></li>
+	      <td><%= image_tag u.member.photo.url(:thumb), :alt => "", :width => 55, :height => 55 if u.member %></td>
+	      <td><%= u.member.registration_id  if u.member -%></td>
+	      <td><%= u.first_name + " " + u.last_name if u.first_name && u.last_name -%></td>
+	      <td><%= u.email -%></td>
+	      <td><%= u.member.department.name if u.member -%></td>
+	      <td><%= u.member.program.name if u.member -%></td>
+	      <td>
+	        <div class="edit-holder alr">
+	          <ul class="edit-box">
+	            <li>
+	              <%= link_to "Edit", new_member_path , :class => "edit-but" -%>
+	              <ul class="edit-sub">
+		              <li> <%= link_to "Edit",new_member_path -%></li>
+		              <li> <%= link_to "Delete", new_member_path , :method => :delete -%></li>
+	              </ul>
+	            </li>
 	          </ul>
-	        </li>
-	      </ul>
-	    </div>
-          </td>
-
+	        </div>
+        </td>
 	   </tr>
-
-	<br />
-	  <% end %>
-
-</table>
-
+	    <% end %>
+    </table>
 	</li>
-  </ul>
+</ul>
 
 
 

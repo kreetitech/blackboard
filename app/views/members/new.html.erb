@@ -1,4 +1,4 @@
-<% if params[:user] == "student" %>
+<% if params["student"] %>
 <%= render :partial => "members/student" -%>
 <% else %>
 <%= render :partial => "members/faculty" -%>
